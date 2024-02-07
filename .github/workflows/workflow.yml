@@ -1,5 +1,5 @@
 env:
-  RUBY_VERSION: 3.0.2
+  RUBY_VERSION: 3.1.2
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: password
   DATABASE_USER: postgres
@@ -61,4 +61,3 @@ jobs:
         with:
           name: brakeman-report.txt
           path: brakeman.txt
-
