@@ -14,7 +14,15 @@ Rails.application.routes.draw do
   end
 
   resources :books
+
   resources :users
+  resources :users do
+    member do
+      get :delete
+      get :details
+    end
+  end
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

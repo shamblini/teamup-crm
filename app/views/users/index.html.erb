@@ -1,4 +1,4 @@
-<!-- app/views/user/index.html.erb -->
+<!-- app/views/users/index.html.erb -->
 
 <h1>List of Users</h1>
 <table>
@@ -15,11 +15,11 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.type %></td>
+        <td><%= user.user_type %></td>
         <td>
           <%= link_to 'Show', user %>
           <%= link_to 'Edit', edit_user_path(user) %>
-          <%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
         </td>
       </tr>
     <% end %>
