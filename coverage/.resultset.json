@@ -1,21 +1,26 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/test_app/spec/models/book_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/login_helper_spec.rb": {
         "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
           1,
           null,
           null,
           null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
           null
         ]
       },
-      "/csce431/test_app/spec/rails_helper.rb": {
+      "/csce431/teamup-crm/spec/rails_helper.rb": {
         "lines": [
           null,
           null,
@@ -85,7 +90,7 @@
           null
         ]
       },
-      "/csce431/test_app/config/environment.rb": {
+      "/csce431/teamup-crm/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -94,7 +99,7 @@
           1
         ]
       },
-      "/csce431/test_app/config/application.rb": {
+      "/csce431/teamup-crm/config/application.rb": {
         "lines": [
           1,
           null,
@@ -120,7 +125,7 @@
           null
         ]
       },
-      "/csce431/test_app/config/boot.rb": {
+      "/csce431/teamup-crm/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -128,7 +133,7 @@
           1
         ]
       },
-      "/csce431/test_app/config/environments/test.rb": {
+      "/csce431/teamup-crm/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -192,7 +197,19 @@
           null
         ]
       },
-      "/csce431/test_app/config/initializers/assets.rb": {
+      "/csce431/teamup-crm/config/initializers/application_controller_renderer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -208,7 +225,19 @@
           null
         ]
       },
-      "/csce431/test_app/config/initializers/content_security_policy.rb": {
+      "/csce431/teamup-crm/config/initializers/backtrace_silencers.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      "/csce431/teamup-crm/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -237,7 +266,337 @@
           null
         ]
       },
-      "/csce431/test_app/config/initializers/filter_parameter_logging.rb": {
+      "/csce431/teamup-crm/config/initializers/cookies_serializer.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      },
+      "/csce431/teamup-crm/config/initializers/devise.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -249,7 +608,7 @@
           null
         ]
       },
-      "/csce431/test_app/config/initializers/inflections.rb": {
+      "/csce431/teamup-crm/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -269,7 +628,15 @@
           null
         ]
       },
-      "/csce431/test_app/config/initializers/permissions_policy.rb": {
+      "/csce431/teamup-crm/config/initializers/mime_types.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -284,9 +651,35 @@
           null
         ]
       },
-      "/csce431/test_app/config/routes.rb": {
+      "/csce431/teamup-crm/config/initializers/wrap_parameters.rb": {
+        "lines": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/config/routes.rb": {
         "lines": [
           1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
           1,
           1,
           null,
@@ -296,7 +689,30 @@
           null
         ]
       },
-      "/csce431/test_app/app/helpers/application_helper.rb": {
+      "/csce431/teamup-crm/app/models/admin.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/application_record.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -304,7 +720,7 @@
           null
         ]
       },
-      "/csce431/test_app/app/helpers/books_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/books_helper.rb": {
         "lines": [
           null,
           null,
@@ -312,7 +728,61 @@
           null
         ]
       },
-      "/csce431/test_app/app/models/book.rb": {
+      "/csce431/teamup-crm/app/helpers/login_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/helpers/user_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/helpers/user_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/admin_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/book_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/book.rb": {
         "lines": [
           null,
           null,
@@ -320,9 +790,128 @@
           null
         ]
       },
-      "/csce431/test_app/app/models/application_record.rb": {
+      "/csce431/teamup-crm/spec/models/donation_spec.rb": {
         "lines": [
+          1,
           null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/donation.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/log_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/log.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/user.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/requests/login_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/requests/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/views/login/index.html.erb_spec.rb": {
+        "lines": [
+          1,
           null,
           1,
           1,
@@ -330,6 +919,6 @@
         ]
       }
     },
-    "timestamp": 1706774286
+    "timestamp": 1707420518
   }
 }
