@@ -1,0 +1,17 @@
+<%= link_to("Back to Groups", groups_path, class: 'back-link') %>
+
+<div class="groups delete">
+  <h2>Delete Group</h2>
+
+  <%= form_for(@group, method: 'delete') do |f| %>
+    <% # url: group_path(@group), method: 'delete' %>
+
+    <p>Are you sure you want to permanently delete this group?</p>
+    <p><%= @group.title %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Group") %>
+    </div>
+
+  <% end %>
+</div>

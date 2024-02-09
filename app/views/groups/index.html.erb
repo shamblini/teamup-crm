@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Groups</h1>
+
+<table class="listing" summary="Group list" style="width: 100%;">
+  <tr class="header">
+    <th>#</th>
+    <th>Name</th>
+    <th>Organization Type</th>
+    <th>Number of Associates</th>
+    <th>Actions</th>
+  </tr>
+  <% @groups.each do |group| %>
+    <tr>
+      <td style="text-align: center;"><%= group.id %></td>
+      <td style="text-align: center;"><%= group.name %></td>
+      <td style="text-align: center;">Volunteer Group</td>
+      <td style="text-align: center;">7</td>
+      <td style="text-align: center;">
+        <%= link_to "Show", group_path(group), class: 'action show' %>
+        <%= link_to "Edit", edit_group_path(group), class: 'action edit'  %>
+        <%= link_to "Delete", '#', class: 'action delete' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New group", new_group_path %>
