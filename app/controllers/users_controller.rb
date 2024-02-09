@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     # GET /users
     def index
       @users = User.all
+      render :index
     end
   
     # GET /users/1
@@ -39,10 +40,19 @@ class UsersController < ApplicationController
       end
     end
   
-    # DELETE /users/1
+    # DELETE /users/1 or /users/1.json
+    def delete
+      @user = User.find(params[:id])
+    end
+
     def destroy
+      @user = User.find(params[:id])
       @user.destroy
-      redirect_to users_url, notice: 'User was successfully destroyed.'
+
+      respond_to do |format|
+        format.html { redirect_to(users_url, notice: 'user was successfully destroyed.') }
+        format.json { head(:no_content) }
+      end
     end
   
     private
@@ -53,7 +63,7 @@ class UsersController < ApplicationController
   
       # Only allow a list of trusted parameters through.
       def user_params
-        params.require(:user).permit(:name, :email, :type, :donations_id, :permission_set_id)
+        params.require(:user).permit(:name, :email, :user_type, :donations_id, :permission_set_id)
       end
   end
   
