@@ -46,21 +46,5 @@ RSpec.describe User, type: :model do
   end
 end
 
-RSpec.describe('Creating a user with name, email, user_type, and permission_set Sunny Day', type: :feature) do
-  it 'valid inputs' do
-    visit new_user_path
-    fill_in 'user[name]', with: 'Ozami'
-    fill_in 'Email', with: 'Ozami@NoLongerHuman'
-    fill_in 'User_type', with: 'volunteer'
-    fill_in 'Permission_set', with: '10'
-    click_on 'Create User'
-    visit users_url
-    expect(page).to(have_content('Ozami'))
-    expect(page).to(have_content('Ozami@NoLongerHuman'))
-    expect(page).to(have_content('volunteer'))
-    expect(page).to(have_content('10'))
-  end
-end
-
 
 

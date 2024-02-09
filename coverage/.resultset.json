@@ -1,15 +1,11 @@
 {
   "RSpec": {
     "coverage": {
-      "/csce431/teamup-crm/spec/models/user_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/login_helper_spec.rb": {
         "lines": [
           1,
           null,
           null,
-          1,
-          1,
-          1,
-          1,
           null,
           null,
           null,
@@ -20,54 +16,7 @@
           null,
           null,
           1,
-          null,
           1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
           null
         ]
       },
@@ -799,9 +748,60 @@
           null
         ]
       },
-      "/csce431/teamup-crm/app/models/user.rb": {
+      "/csce431/teamup-crm/spec/helpers/user_helper_spec.rb": {
         "lines": [
           1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/admin_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/book_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/app/models/book.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/donation_spec.rb": {
+        "lines": [
+          1,
+          null,
           1,
           1,
           null
@@ -813,6 +813,15 @@
           null
         ]
       },
+      "/csce431/teamup-crm/spec/models/log_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          null
+        ]
+      },
       "/csce431/teamup-crm/app/models/log.rb": {
         "lines": [
           1,
@@ -820,102 +829,104 @@
           null
         ]
       },
-      "/csce431/teamup-crm/app/controllers/users_controller.rb": {
+      "/csce431/teamup-crm/spec/models/user_spec.rb": {
         "lines": [
           1,
-          1,
           null,
           null,
           1,
-          0,
-          0,
-          null,
-          null,
-          null,
+          1,
+          1,
           1,
           null,
           null,
           null,
-          1,
-          0,
           null,
           null,
           null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
           null,
           null,
           null,
           1,
           null,
           1,
-          0,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           null,
           null,
           1,
-          0,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
           null,
           null,
           null
         ]
       },
-      "/csce431/teamup-crm/app/controllers/application_controller.rb": {
+      "/csce431/teamup-crm/app/models/user.rb": {
         "lines": [
-          null,
-          null,
+          1,
           1,
           1,
           null
         ]
       },
-      "/csce431/teamup-crm/app/controllers/admins/sessions_controller.rb": {
+      "/csce431/teamup-crm/spec/requests/login_spec.rb": {
         "lines": [
           1,
+          null,
+          1,
+          1,
+          1,
           1,
           0,
           null,
           null,
-          1,
-          0,
           null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/requests/user_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/views/login/index.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
           null
         ]
       }
     },
-    "timestamp": 1707493568
+    "timestamp": 1707494450
   }
 }
