@@ -20,7 +20,7 @@ class GroupsController < ApplicationController
   end
 
   def delete
-    @group = group.find(params[:id])
+    @group = Group.find(params[:id])
   end
 
   # POST /groups or /groups.json

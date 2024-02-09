@@ -7,7 +7,12 @@ Rails.application.routes.draw do
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
   get '/groups', to: 'groups#index'
-  resources :groups
+  resources :groups do
+    member do
+      get :delete
+    end
+  end
+
   resources :books
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

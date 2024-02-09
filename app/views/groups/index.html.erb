@@ -19,7 +19,7 @@
       <td style="text-align: center;">
         <%= link_to "Show", group_path(group), class: 'action show' %>
         <%= link_to "Edit", edit_group_path(group), class: 'action edit'  %>
-        <%= link_to "Delete", '#', class: 'action delete' %>
+        <%= link_to "Delete", delete_group_path(group), class: 'action delete' %>
       </td>
     </tr>
   <% end %>
