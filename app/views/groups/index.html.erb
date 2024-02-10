@@ -5,7 +5,6 @@
     <th>#</th>
     <th>Name</th>
     <th>Organization Type</th>
-    <th>Number of Associates</th>
     <th>Actions</th>
   </tr>
   <% @groups.each do |group| %>
@@ -13,7 +12,6 @@
       <td style="text-align: center;"><%= group.id %></td>
       <td style="text-align: center;"><%= group.name %></td>
       <td style="text-align: center;"><%= group.org_type %></td>
-      <td style="text-align: center;">7</td>
       <td style="text-align: center;">
         <%= link_to "Show", group_path(group), class: 'action show' %>
         <%= link_to "Edit", edit_group_path(group), class: 'action edit'  %>

@@ -1,5 +1,17 @@
 <!-- app/views/users/edit.html.erb -->
 <h1>Edit User</h1>
 <%= render 'form' %>
+<%= form_for(@user) do |f| %>
+    <table summary="Group form fields">
+        <tr>
+            <th>
+                <%= f.label :group_id %>
+            </th>
+            <td> 
+                <%= f.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %>
+            </td>
+        </tr>
+    </table>
+<% end %>
 <%= link_to 'Show', @user %> |
 <%= link_to 'Back', users_path %>
