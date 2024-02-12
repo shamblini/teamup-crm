@@ -1,0 +1,6 @@
+<nav>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', users_path %>
+  <%= link_to 'Groups', groups_path, class: 'active' %>
+  <%= link_to "Sign Out", destroy_admin_session_path %>
+</nav>
