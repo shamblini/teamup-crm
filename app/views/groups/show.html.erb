@@ -1,0 +1,27 @@
+<%= link_to "Back to groups", groups_path %>
+
+<h1>Details</h1>
+
+<table summary="Group detail view">
+    <tr>
+      <th>Name</th>
+      <td><%= @group.name %></td>
+    </tr>
+    <tr>
+      <th>Organization Type</th>
+      <td><%= @group.org_type %></td>
+    </tr>
+      <th>Created</th>
+      <td><%= @group.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @group.updated_at %></td>
+    </tr>
+  </table>
+
+<div>
+  <%= link_to "Edit this group", edit_group_path(@group) %> |
+
+  <%= link_to "Delete this group", delete_group_path(@group) %>
+</div>
