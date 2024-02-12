@@ -1,17 +1,33 @@
 <!-- app/views/users/new.html.erb -->
+
+<%= link_to 'Back to Users', users_path %>
+
 <h1>New User</h1>
-<%= render 'form' %>
+
 <%= form_for(@user) do |f| %>
     <table summary="Group form fields">
         <tr>
-            <th>
-                <%= f.label :group_id %>
-            </th>
-            <td> 
-                <%= f.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %>
-            </td>
+            <th><%= f.label :name %></th>
+            <td><%= f.text_field :name %></td>
         </tr>
-
+        <tr>
+            <th><%= f.label :email %></th>
+            <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :user_type %></th>
+            <td><%= f.select :user_type, ['Admin', 'Staff', 'Volunteer/Donor', 'Other'], prompt: 'Select User Type' %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :permission_set %></th>
+            <td><%= f.number_field :permission_set %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :group_id %></th>
+            <td> <%= f.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %></td>
+        </tr>
     </table>
+    <div class="form-buttons">
+      <%= f.submit("Create Group") %>
+    </div>
 <% end %>
-<%= link_to 'Back', users_path %>

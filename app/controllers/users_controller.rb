@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
     # GET /users
     def index
-      @users = User.all
+      @users = User.order(:id)
       render :index
     end
   

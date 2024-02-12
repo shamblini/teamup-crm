@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_09_233740) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "logs_id"
-    t.bigint "group_id", default: 1
+    t.bigint "group_id"
     t.index ["donations_id"], name: "index_users_on_donations_id"
     t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["logs_id"], name: "index_users_on_logs_id"

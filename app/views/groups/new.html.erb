@@ -4,7 +4,20 @@
 
 <h1>New Group</h1>
 
+
+
 <div class="groups new">
+  <% if @group.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@group.errors.count, "error") %> prohibited this group from being saved:</h2>
+      <ul>
+        <% @group.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= form_for(@group) do |f| %>
     <% # url: groups_path, method: 'post' %>
     <table summary="Group form fields">
@@ -23,5 +36,5 @@
     <div class="form-buttons">
       <%= f.submit("Create Group") %>
     </div>
-    <% end %>
+  <% end %>
 </div>
