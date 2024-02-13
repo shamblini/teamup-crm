@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 Admin.create!([
-  { email: 'dallasocoggins@gmail.com'}
+  { email: 'dallasocoggins@gmail.com'},
+  { email: 'zaneaggie24@tamu.edu'}
 ])
 
-Book.create!([
-  { title: '1' },
-  { title: '34' },
-  { title: '128' },
-  { title: '1285454' }
-])
