@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donations/index'
   root 'dashboards#show'
 
   devise_for :admins, controllers: { omniauth_callbacks: 'admins/omniauth_callbacks' }
@@ -27,4 +28,19 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  # donation routes
+  resources :donations, only: [:index]
+  resources :donations do
+    member do
+      get :delete
+    end
+  end
+  
+
+  Rails.application.routes.draw do
+    resources :donations
+  end
+  
+
 end

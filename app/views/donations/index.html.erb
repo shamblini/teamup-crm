@@ -1,0 +1,26 @@
+<h1>List of Donations</h1>
+
+<%= link_to "New Donation", new_donation_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Donor</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>Edit</th>
+      <th>Destroy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= donation.donor_name%></td>
+        <td><%= donation.amount %></td>
+        <td><%= donation.donation_date %></td>
+        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+        <td><%= link_to 'Delete', delete_donation_path(donation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
