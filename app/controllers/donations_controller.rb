@@ -1,6 +1,28 @@
 class DonationsController < ApplicationController
+  before_action :set_donation, only: %i[ show edit update destroy ]
   def index
     @donations = Donation.all
+    if params[:sort]
+      column = params[:sort]
+      direction = params[:direction] == 'asc' ? 'desc' : 'asc'
+      @donations = @donations.order("#{column} #{direction}")
+    end
+    if params[:search]
+      search_donations
+    end
+  end
+
+  def search_donations
+    @donations = Donation.all
+    @donation = @donations.find { |donation| donation.donor_name.include?(params[:search]) }
+    
+    if @donation
+      redirect_to donation_path(@donation)
+    else
+      # Handle case where no donation is found
+      flash[:notice] = "No donation found with the donor name '#{params[:search]}'."
+      redirect_to donations_path
+    end
   end
 
   def show
