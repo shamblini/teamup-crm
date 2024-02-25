@@ -1,0 +1,12 @@
+
+  <h1>Delete Campaign</h1>
+
+  <p><strong>Campaign name:</strong> <%= @campaign.name %></p>
+  <p><strong>Goal Amount:</strong> <%= @campaign.goal_amount %></p>
+  <p><strong>Start Date:</strong> <%= @campaign.start_date %></p> 
+  <p><strong>End Date:</strong> <%= @campaign.end_date %></p>
+
+  <%= form_for(@campaign, method: :delete) do |f| %>
+    <p>Are you sure?</p>
+      <%= f.submit("Delete") %>
+  <% end %>

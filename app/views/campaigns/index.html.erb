@@ -1,0 +1,34 @@
+<h1>List of Campaigns</h1>
+
+<%= form_tag(campaigns_path, method: :get) do %>
+  <p> Search for a campaign </p>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+
+<%= link_to "New Donation", new_campaign_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= link_to "Donor", { sort: 'name', direction: (params[:sort] == 'name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Amount", { sort: 'goal_amount', direction: (params[:sort] == 'goal_amount' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Start Date", { sort: 'campaign_date', direction: (params[:sort] == 'campaign_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "End Date", { sort: 'campaign_date', direction: (params[:sort] == 'campaign_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+
+
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @campaigns.each do |campaign| %>
+      <tr>
+        <td><%= link_to campaign.name, campaign_path(campaign) %></td>
+        <td><%= campaign.goal_amount %></td>
+        <td><%= campaign.campaign_date %></td>
+        <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

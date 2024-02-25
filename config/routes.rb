@@ -37,10 +37,15 @@ Rails.application.routes.draw do
     end
   end
   
-
   Rails.application.routes.draw do
     resources :donations
   end
-  
+
+  resources :campaigns
+  resources :campaigns do
+    member do
+      get :delete
+    end
+  end
 
 end

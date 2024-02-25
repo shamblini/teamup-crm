@@ -1,36 +1,5 @@
 <h1>Update Donation</h1>
 
-<%= form_with(model: @donation, url: donation_path(@donation), method: :patch, local: true) do |form| %>
-  <% if @donation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
-      <ul>
-        <% @donation.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render partial: 'form', locals: { donation: @donation, method: :patch } %>
 
-  <div class="field">
-    <%= form.label :donor_name %>
-    <%= form.text_field :donor_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :donation_date %>
-    <%= form.date_field :donation_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Update Donation" %>
-  </div>
-  
-  
-<% end %>
 <%= link_to "Delete", delete_donation_path(@donation)%>
