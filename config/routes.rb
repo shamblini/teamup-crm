@@ -41,11 +41,16 @@ Rails.application.routes.draw do
     resources :donations
   end
 
-  resources :campaigns
+  # campaign routes
+  resources :campaigns, only: [:index]
   resources :campaigns do
     member do
       get :delete
     end
+  end
+
+  Rails.application.routes.draw do
+    resources :campaigns
   end
 
 end

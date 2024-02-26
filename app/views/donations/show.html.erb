@@ -3,6 +3,7 @@
 <p><strong>Donor Name:</strong> <%= @donation.donor_name %></p>
 <p><strong>Amount:</strong> <%= @donation.amount %></p>
 <p><strong>Donation Date:</strong> <%= @donation.donation_date %></p>
+<p><strong>Campaign Name:</strong> <%= @donation.campaign.name %></p>
 
 <%= link_to 'Edit', edit_donation_path(@donation) %> |
 <%= link_to 'Back', donations_path %>

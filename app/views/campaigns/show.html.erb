@@ -1,8 +1,11 @@
 <h1>Donation Details</h1>
 
-<p><strong>Donor Name:</strong> <%= @donation.donor_name %></p>
-<p><strong>Amount:</strong> <%= @donation.amount %></p>
-<p><strong>Donation Date:</strong> <%= @donation.donation_date %></p>
+<p><strong>Campaign Name:</strong> <%= @campaign.name %></p>
+<p><strong>Goal Amount:</strong> <%= @campaign.goal_amount %></p>
+<p><strong>Start Date:</strong> <%= @campaign.start_date %></p>
+<p><strong>End Date:</strong> <%= @campaign.end_date %></p>
 
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<%# show list of donations by  %>
+
+<%= link_to 'Edit', edit_campaign_path(@campaign) %> |
+<%= link_to 'Back', campaigns_path %>

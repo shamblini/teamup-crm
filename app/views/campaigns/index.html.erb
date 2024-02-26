@@ -7,16 +7,15 @@
 <% end %>
 
 
-<%= link_to "New Donation", new_campaign_path %>
+<%= link_to "New Campaign", new_campaign_path %>
 
 <table>
   <thead>
     <tr>
-      <th><%= link_to "Donor", { sort: 'name', direction: (params[:sort] == 'name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
-      <th><%= link_to "Amount", { sort: 'goal_amount', direction: (params[:sort] == 'goal_amount' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
-      <th><%= link_to "Start Date", { sort: 'campaign_date', direction: (params[:sort] == 'campaign_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
-      <th><%= link_to "End Date", { sort: 'campaign_date', direction: (params[:sort] == 'campaign_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
-
+      <th><%= link_to "Name", { sort: 'name', direction: (params[:sort] == 'name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Goal Amount", { sort: 'goal_amount', direction: (params[:sort] == 'goal_amount' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Start Date", { sort: 'start_date', direction: (params[:sort] == 'start_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "End Date", { sort: 'end_date', direction: (params[:sort] == 'end_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
 
       <th>Edit</th>
     </tr>
@@ -26,7 +25,9 @@
       <tr>
         <td><%= link_to campaign.name, campaign_path(campaign) %></td>
         <td><%= campaign.goal_amount %></td>
-        <td><%= campaign.campaign_date %></td>
+        <td><%= campaign.start_date %></td>
+        <td><%= campaign.end_date %></td>
+        
         <td><%= link_to 'Edit', edit_campaign_path(campaign) %></td>
       </tr>
     <% end %>

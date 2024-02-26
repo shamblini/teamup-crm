@@ -24,8 +24,14 @@
     <%= form.label :donation_date %>
     <%= form.date_field :donation_date %>
   </div>
+  
+  <div class="field">
+    <%= form.label :campaign_id, 'Campaign' %>
+    <%= form.collection_select :campaign_id, Campaign.all, :id, :name, prompt: 'Select a Campaign' %>
+  </div>
 
   <div class="actions">
-    <%= form.submit "Update Donation" %>
+    <%= form.submit "Submit" %>
   </div>
+  
 <% end %>

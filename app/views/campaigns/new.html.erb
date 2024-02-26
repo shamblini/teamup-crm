@@ -1,33 +1,9 @@
 <h1>New Campaign</h1>
 
-<%= form_with(model: @campaign, url: campaigns_path, local: true) do |form| %>
-  <% if @campaign.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@campaign.errors.count, "error") %> prohibited this campaign from being saved:</h2>
-      <ul>
-        <% @campaign.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render "form", campaign: @campaign, method: :post %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+<br>
 
-  <div class="field">
-    <%= form.label :goal_amount %>
-    <%= form.number_field :goal_amount %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<div>
+  <%= link_to "Back to campaigns", campaigns_path %>
+</div>
