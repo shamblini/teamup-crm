@@ -19,8 +19,9 @@ class CampaignsController < ApplicationController
     if @campaign
       redirect_to campaign_path(@campaign)
     else
-      # Handle case where no campaign is found
-      flash[:notice] = "No campaign found with the name '#{params[:search]}'."
+      if params[:search]!=""
+        flash[:notice] = "No campaign found with the name '#{params[:search]}'."
+      end
       redirect_to campaigns_path
     end
   end

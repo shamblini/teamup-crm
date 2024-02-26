@@ -21,8 +21,11 @@ class DonationsController < ApplicationController
     @donations = @donations.select{ |donation| donation.campaign && donation.campaign.name.include?(params[:campaign]) }
 
     if @donations.empty? || (params[:campaign]).empty?
-      flash[:notice] = "No donations found for campaign '#{params[:campaign]}'."
+      if params[:campaign]!=""
+        flash[:notice] = "No donations found for campaign '#{params[:campaign]}'."
+      end
       @donations = Donation.all
+      redirect_to donations_path
     end
   end
 
