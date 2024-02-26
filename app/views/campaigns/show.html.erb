@@ -1,11 +1,32 @@
-<h1>Donation Details</h1>
+<h1>Campaign Details</h1>
 
 <p><strong>Campaign Name:</strong> <%= @campaign.name %></p>
 <p><strong>Goal Amount:</strong> <%= @campaign.goal_amount %></p>
 <p><strong>Start Date:</strong> <%= @campaign.start_date %></p>
 <p><strong>End Date:</strong> <%= @campaign.end_date %></p>
 
-<%# show list of donations by  %>
+<table>
+  <thead>
+    <tr>
+      <th><%= link_to "Donor", { sort: 'donor_name', direction: (params[:sort] == 'donor_name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Amount", { sort: 'amount', direction: (params[:sort] == 'amount' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Date", { sort: 'donation_date', direction: (params[:sort] == 'donation_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Campaign", { sort: 'campaign_id', direction: (params[:sort] == 'campaign' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= link_to donation.donor_name, donation_path(donation) %></td>
+        <td><%= donation.amount %></td>
+        <td><%= donation.donation_date %></td>
+        <td><%= donation.campaign ? donation.campaign.name : "-" %></td>
+        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_campaign_path(@campaign) %> |
 <%= link_to 'Back', campaigns_path %>

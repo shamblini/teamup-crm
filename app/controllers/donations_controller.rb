@@ -1,5 +1,6 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: %i[ show edit update destroy ]
+
   def index
     @donations = Donation.all
     if params[:sort]
@@ -10,6 +11,19 @@ class DonationsController < ApplicationController
     if params[:search]
       search_donations
     end
+    if params[:campaign]
+      search_campaigns
+    end
+  end
+
+  def search_campaigns
+    @donations = Donation.all
+    @donations = @donations.select{ |donation| donation.campaign && donation.campaign.name.include?(params[:campaign]) }
+
+    if @donations.empty? || (params[:campaign]).empty?
+      flash[:notice] = "No donations found for campaign '#{params[:campaign]}'."
+      @donations = Donation.all
+    end
   end
 
   def search_donations
@@ -19,7 +33,6 @@ class DonationsController < ApplicationController
     if @donation
       redirect_to donation_path(@donation)
     else
-      # Handle case where no donation is found
       flash[:notice] = "No donation found with the donor name '#{params[:search]}'."
       redirect_to donations_path
     end
@@ -86,4 +99,5 @@ class DonationsController < ApplicationController
     def donation_params
       params.require(:donation).permit(:donor_name, :amount, :donation_date, :campaign_id)
     end
+  
 end

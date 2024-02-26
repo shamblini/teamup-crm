@@ -27,6 +27,8 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    @donations = Donation.all
+    @donations = @donations.select{ |donation| donation.campaign && donation.campaign.name.include?(@campaign.name) }
   end
 
   def new
@@ -75,7 +77,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
   end
 
-  def campaign_params    
+  def campaign_params
     params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date)
   end
 end

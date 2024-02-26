@@ -6,6 +6,11 @@
   <%= submit_tag ("Search") %>
 <% end %>
 
+<%= form_tag(donations_path, method: :get) do %>
+  <p> Search for a campaign </p>
+  <%= text_field_tag(:campaign, params[:campaign]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
 
 <%= link_to "New Donation", new_donation_path %>
 
