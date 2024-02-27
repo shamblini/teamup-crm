@@ -27,7 +27,7 @@
 </div>
 
 <h1>Users List</h1>
-<table>
+<table class="listing" summary="Group list" style="width: 100%;">
   <thead>
     <tr>
       <th>Name</th>
@@ -38,9 +38,9 @@
   <tbody>
     <% @group.users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.user_type %></td>
-        <td>
+        <td style="text-align: center;"><%= user.name %></td>
+        <td style="text-align: center;"><%= user.user_type %></td>
+        <td style="text-align: center;">
           <%= link_to 'Show', user_path(user) %>
           <%= link_to 'Edit', edit_user_path(user) %>
           <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
