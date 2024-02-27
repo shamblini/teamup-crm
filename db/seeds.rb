@@ -1,12 +1,12 @@
-# frozen_string_literal: true
+# Create the Root group
+root_group = Group.create!(
+  name: 'Root',
+  org_type: 'SomeOrgType'  # Make sure to replace 'SomeOrgType' with the appropriate organization type
+)
 
-Admin.create!([
-  { email: 'dallasocoggins@gmail.com'}
-])
-
-Book.create!([
-  { title: '1' },
-  { title: '34' },
-  { title: '128' },
-  { title: '1285454' }
-])
+# Create a user with email and assign them to the root group
+User.create!(
+  email: 'dallasocoggins@gmail.com',
+  is_admin: true,
+  group: root_group  # Use the object reference directly
+)

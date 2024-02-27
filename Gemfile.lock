@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    action_policy (0.6.8)
+      ruby-next-core (>= 1.0)
     actioncable (7.0.8)
       actionpack (= 7.0.8)
       activesupport (= 7.0.8)
@@ -266,6 +268,7 @@ GEM
       rubocop (>= 1.7.0, < 2.0)
     rubocop-rspec (2.11.1)
       rubocop (~> 1.19)
+    ruby-next-core (1.0.2)
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -334,6 +337,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  action_policy
   bootsnap
   brakeman
   capybara
