@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'admins/sign_in', to: 'admins/sessions#new', as: :new_admin_session
     get 'admins/sign_out', to: 'admins/sessions#destroy', as: :destroy_admin_session
   end
+  
   get '/groups', to: 'groups#index'
   resources :groups do
     member do
@@ -24,21 +25,12 @@ Rails.application.routes.draw do
     end
   end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
-
   # donation routes
   resources :donations, only: [:index]
   resources :donations do
     member do
       get :delete
     end
-  end
-  
-  Rails.application.routes.draw do
-    resources :donations
   end
 
   # campaign routes
@@ -47,10 +39,6 @@ Rails.application.routes.draw do
     member do
       get :delete
     end
-  end
-
-  Rails.application.routes.draw do
-    resources :campaigns
   end
 
 end
