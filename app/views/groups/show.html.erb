@@ -11,6 +11,10 @@
     <th>Organization Type</th>
     <td><%= @group.org_type %></td>
   </tr>
+  <tr>
+    <th>Total Donations</th>
+    <td><%= number_to_currency(@group.calculate_total_donations, unit: '$', precision: 2) %></td>
+  </tr>
     <th>Created</th>
     <td><%= @group.created_at %></td>
   </tr>

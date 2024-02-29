@@ -9,7 +9,7 @@ class GroupsController < ApplicationController
   # GET /groups/1 or /groups/1.json
   def show
     @group = Group.find(params[:id])
-    @users = @group.users
+    @users = @group.users.includes(:donations).map { |user| user.attributes.merge(total_donations: user.calculate_total_donations) }
   end
 
   # GET /groups/new
