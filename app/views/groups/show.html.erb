@@ -3,25 +3,53 @@
 <h1>Details</h1>
 
 <table summary="Group detail view">
-    <tr>
-      <th>Name</th>
-      <td><%= @group.name %></td>
-    </tr>
-    <tr>
-      <th>Organization Type</th>
-      <td><%= @group.org_type %></td>
-    </tr>
-      <th>Created</th>
-      <td><%= @group.created_at %></td>
-    </tr>
-    <tr>
-      <th>Updated</th>
-      <td><%= @group.updated_at %></td>
-    </tr>
-  </table>
+  <tr>
+    <th>Name</th>
+    <td><%= @group.name %></td>
+  </tr>
+  <tr>
+    <th>Organization Type</th>
+    <td><%= @group.org_type %></td>
+  </tr>
+  <tr>
+    <th>Total Donations</th>
+    <td><%= number_to_currency(@group.calculate_total_donations, unit: '$', precision: 2) %></td>
+  </tr>
+    <th>Created</th>
+    <td><%= @group.created_at %></td>
+  </tr>
+  <tr>
+    <th>Updated</th>
+    <td><%= @group.updated_at %></td>
+  </tr>
+</table>
 
 <div>
   <%= link_to "Edit this group", edit_group_path(@group) %> |
 
   <%= link_to "Delete this group", delete_group_path(@group) %>
 </div>
+
+<h1>Users List</h1>
+<table class="listing" summary="Group list" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.users.each do |user| %>
+      <tr>
+        <td style="text-align: center;"><%= user.name %></td>
+        <td style="text-align: center;"><%= user.user_type %></td>
+        <td style="text-align: center;">
+          <%= link_to 'Show', user_path(user) %>
+          <%= link_to 'Edit', edit_user_path(user) %>
+          <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
