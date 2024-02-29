@@ -12,6 +12,23 @@ class CampaignsController < ApplicationController
     end
   end
 
+  require 'csv'
+  def upload_csv
+    uploaded_file = params[:csv_file]
+    
+    begin
+      CSV.foreach(uploaded_file.path, headers: true) do |row|
+        campaign_data = row.to_h
+        Campaign.create!(campaign_data)
+      end
+      flash[:success] = "CSV file uploaded successfully."
+    rescue StandardError => e
+      flash[:error] = "Error uploading CSV file: #{e.message}"
+    end
+    
+    redirect_to donations_path
+  end
+
   def search_campaigns
     @campaigns = Campaign.all
     @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }

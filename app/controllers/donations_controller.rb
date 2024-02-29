@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
       end
       @donations = Donation.all
       redirect_to donations_path
-    end
+    end\
   end
 
   def search_donations
@@ -39,6 +39,23 @@ class DonationsController < ApplicationController
       flash[:notice] = "No donation found with the donor name '#{params[:search]}'."
       redirect_to donations_path
     end
+  end
+
+  require 'csv'
+  def upload_csv
+    uploaded_file = params[:csv_file]
+    
+    begin
+      CSV.foreach(uploaded_file.path, headers: true) do |row|
+        donation_data = row.to_h
+        Donation.create!(donation_data)
+      end
+      flash[:success] = "CSV file uploaded successfully."
+    rescue StandardError => e
+      flash[:error] = "Error uploading CSV file: #{e.message}"
+    end
+    
+    redirect_to donations_path
   end
 
   def show
