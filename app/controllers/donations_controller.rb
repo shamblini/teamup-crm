@@ -26,7 +26,7 @@ class DonationsController < ApplicationController
       end
       @donations = Donation.all
       redirect_to donations_path
-    end
+    end\
   end
 
   def search_donations
