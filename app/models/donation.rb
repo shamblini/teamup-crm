@@ -3,6 +3,6 @@ class Donation < ApplicationRecord
   validates :amount, presence: true
   validates :donation_date, presence: true
   belongs_to :campaign, optional: true
-  belongs_to :user
+  belongs_to :user, optional: true
   
 end

@@ -33,6 +33,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'upload_csv', to: 'donations#upload_csv', as: 'upload_csv'
+
   # campaign routes
   resources :campaigns, only: [:index]
   resources :campaigns do

@@ -1,5 +1,7 @@
 <h1>List of Campaigns</h1>
 
+<%= render partial: 'csv' %>
+
 <%= form_tag(campaigns_path, method: :get) do %>
   <p> Search for a campaign </p>
   <%= text_field_tag(:search, params[:search]) %>

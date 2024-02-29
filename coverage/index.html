@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-29T03:53:20+00:00">2024-02-29T03:53:20+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2024-02-29T18:40:03+00:00">2024-02-29T18:40:03+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  69.51%
+  68.07%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.74
+         0.72
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>551</b> relevant lines,
-    <span class="green"><b>383</b> lines covered</span> and
-    <span class="red"><b>168</b> lines missed. </span>
+    <b>570</b> relevant lines,
+    <span class="green"><b>388</b> lines covered</span> and
+    <span class="red"><b>182</b> lines missed. </span>
     (<span class="red">
-  69.51%
+  68.07%
 </span>
 )
   </div>
@@ -94,22 +94,22 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#e20cb112465aec12440d8521aaec2badfddd93d1" class="src_link" title="app/controllers/campaigns_controller.rb">app/controllers/campaigns_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">28.00 %</td>
-            <td class="cell--number">84</td>
-            <td class="cell--number">50</td>
-            <td class="cell--number">14</td>
-            <td class="cell--number">36</td>
-            <td class="cell--number">0.28</td>
+            <td class="red strong cell--number t-file__coverage">27.12 %</td>
+            <td class="cell--number">101</td>
+            <td class="cell--number">59</td>
+            <td class="cell--number">16</td>
+            <td class="cell--number">43</td>
+            <td class="cell--number">0.27</td>
             
           </tr>
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#06a616ab9e99f72e67463336454bf133892d9db5" class="src_link" title="app/controllers/donations_controller.rb">app/controllers/donations_controller.rb</a></td>
-            <td class="red strong cell--number t-file__coverage">24.19 %</td>
-            <td class="cell--number">106</td>
-            <td class="cell--number">62</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">47</td>
+            <td class="red strong cell--number t-file__coverage">23.94 %</td>
+            <td class="cell--number">123</td>
+            <td class="cell--number">71</td>
+            <td class="cell--number">17</td>
+            <td class="cell--number">54</td>
             <td class="cell--number">0.24</td>
             
           </tr>
@@ -458,9 +458,9 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#68f40570ce8206ff31d7ef9629992a79f8d12473" class="src_link" title="config/routes.rb">config/routes.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">44</td>
-            <td class="cell--number">25</td>
-            <td class="cell--number">25</td>
+            <td class="cell--number">46</td>
+            <td class="cell--number">26</td>
+            <td class="cell--number">26</td>
             <td class="cell--number">0</td>
             <td class="cell--number">1.00</td>
             
@@ -1001,7 +1001,7 @@
     <h3>app/controllers/campaigns_controller.rb</h3>
     <h4>
       <span class="red">
-  28.0%
+  27.12%
 </span>
 
       lines covered
@@ -1010,9 +1010,9 @@
     
 
     <div class="t-line-summary">
-      <b>50</b> relevant lines.
-      <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>36</b> lines missed.</span>
+      <b>59</b> relevant lines.
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>43</b> lines missed.</span>
     </div>
 
     
@@ -1183,18 +1183,18 @@
 
             
 
-            <code class="ruby">  def search_campaigns</code>
+            <code class="ruby">  require &#39;csv&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    @campaigns = Campaign.all</code>
+            
+
+            <code class="ruby">  def upload_csv</code>
           </li>
         </div>
       
@@ -1205,7 +1205,7 @@
 
             
 
-            <code class="ruby">    @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }</code>
+            <code class="ruby">    uploaded_file = params[:csv_file]</code>
           </li>
         </div>
       
@@ -1221,13 +1221,13 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="19">
+          <li class="never" data-hits="" data-linenumber="19">
             
             
 
             
 
-            <code class="ruby">    if @campaign</code>
+            <code class="ruby">    begin</code>
           </li>
         </div>
       
@@ -1238,18 +1238,18 @@
 
             
 
-            <code class="ruby">      redirect_to campaign_path(@campaign)</code>
+            <code class="ruby">      CSV.foreach(uploaded_file.path, headers: true) do |row|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="21">
+          <li class="missed" data-hits="0" data-linenumber="21">
             
             
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">        campaign_data = row.to_h</code>
           </li>
         </div>
       
@@ -1260,23 +1260,12 @@
 
             
 
-            <code class="ruby">      if params[:search]!=&quot;&quot;</code>
+            <code class="ruby">        Campaign.create!(campaign_data)</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="23">
-            
-            
-
-            
-
-            <code class="ruby">        flash[:notice] = &quot;No campaign found with the name &#39;#{params[:search]}&#39;.&quot;</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="23">
             
             
 
@@ -1287,24 +1276,35 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="25">
+          <li class="missed" data-hits="0" data-linenumber="24">
             
             
 
             
 
-            <code class="ruby">      redirect_to campaigns_path</code>
+            <code class="ruby">      flash[:success] = &quot;CSV file uploaded successfully.&quot;</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="26">
+          <li class="never" data-hits="" data-linenumber="25">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">    rescue StandardError =&gt; e</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="26">
+            
+            
+
+            
+
+            <code class="ruby">      flash[:error] = &quot;Error uploading CSV file: #{e.message}&quot;</code>
           </li>
         </div>
       
@@ -1315,7 +1315,7 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -1326,56 +1326,23 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="29">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="29">
+            
             
 
             
 
-            <code class="ruby">  def show</code>
+            <code class="ruby">    redirect_to donations_path</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="30">
-            
-            
-
-            
-
-            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="31">
-            
-            
-
-            
-
-            <code class="ruby">    @donations = Donation.all</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="32">
-            
-            
-
-            
-
-            <code class="ruby">    @donations = @donations.select{ |donation| donation.campaign &amp;&amp; donation.campaign.name.include?(@campaign.name) }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="33">
+          <li class="never" data-hits="" data-linenumber="30">
             
             
 
@@ -1386,7 +1353,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="31">
             
             
 
@@ -1397,13 +1364,46 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
+          <li class="covered" data-hits="1" data-linenumber="32">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def new</code>
+            <code class="ruby">  def search_campaigns</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="33">
+            
+            
+
+            
+
+            <code class="ruby">    @campaigns = Campaign.all</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="34">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="35">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
           </li>
         </div>
       
@@ -1414,18 +1414,18 @@
 
             
 
-            <code class="ruby">    @campaign = Campaign.new</code>
+            <code class="ruby">    if @campaign</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="missed" data-hits="0" data-linenumber="37">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      redirect_to campaign_path(@campaign)</code>
           </li>
         </div>
       
@@ -1436,18 +1436,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    else</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="39">
+            
             
 
             
 
-            <code class="ruby">  def create</code>
+            <code class="ruby">      if params[:search]!=&quot;&quot;</code>
           </li>
         </div>
       
@@ -1458,7 +1458,7 @@
 
             
 
-            <code class="ruby">    @campaign = Campaign.new(campaign_params)</code>
+            <code class="ruby">        flash[:notice] = &quot;No campaign found with the name &#39;#{params[:search]}&#39;.&quot;</code>
           </li>
         </div>
       
@@ -1469,7 +1469,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      end</code>
           </li>
         </div>
       
@@ -1480,51 +1480,51 @@
 
             
 
-            <code class="ruby">    respond_to do |format|</code>
+            <code class="ruby">      redirect_to campaigns_path</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="43">
             
             
 
             
 
-            <code class="ruby">      if @campaign.save</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="44">
+          <li class="never" data-hits="" data-linenumber="44">
             
             
 
             
 
-            <code class="ruby">        format.html { redirect_to campaigns_url, notice: &quot;Campaign was successfully created.&quot; }</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
+          <li class="never" data-hits="" data-linenumber="45">
             
             
 
             
 
-            <code class="ruby">        format.json { render :show, status: :created, location: @campaign }</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="46">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">      else</code>
+            
+
+            <code class="ruby">  def show</code>
           </li>
         </div>
       
@@ -1535,7 +1535,7 @@
 
             
 
-            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
+            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
           </li>
         </div>
       
@@ -1546,18 +1546,18 @@
 
             
 
-            <code class="ruby">        format.json { render json: @campaign.errors, status: :unprocessable_entity }</code>
+            <code class="ruby">    @donations = Donation.all</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="49">
+          <li class="missed" data-hits="0" data-linenumber="49">
             
             
 
             
 
-            <code class="ruby">      end</code>
+            <code class="ruby">    @donations = @donations.select{ |donation| donation.campaign &amp;&amp; donation.campaign.name.include?(@campaign.name) }</code>
           </li>
         </div>
       
@@ -1568,7 +1568,7 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1579,40 +1579,40 @@
 
             
 
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="52">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="53">
+          <li class="covered" data-hits="1" data-linenumber="52">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def edit</code>
+            <code class="ruby">  def new</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="54">
+          <li class="missed" data-hits="0" data-linenumber="53">
             
             
 
             
 
-            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
+            <code class="ruby">    @campaign = Campaign.new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -1623,40 +1623,40 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="56">
+          <li class="covered" data-hits="1" data-linenumber="56">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign = Campaign.new(campaign_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="58">
             
             
 
             
 
             <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="57">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def update</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
           </li>
         </div>
       
@@ -1667,7 +1667,7 @@
 
             
 
-            <code class="ruby">    if @campaign.update(campaign_params)</code>
+            <code class="ruby">    respond_to do |format|</code>
           </li>
         </div>
       
@@ -1678,18 +1678,18 @@
 
             
 
-            <code class="ruby">      redirect_to @campaign</code>
+            <code class="ruby">      if @campaign.save</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="61">
+          <li class="missed" data-hits="0" data-linenumber="61">
             
             
 
             
 
-            <code class="ruby">    else</code>
+            <code class="ruby">        format.html { redirect_to campaigns_url, notice: &quot;Campaign was successfully created.&quot; }</code>
           </li>
         </div>
       
@@ -1700,7 +1700,7 @@
 
             
 
-            <code class="ruby">      render &#39;edit&#39;</code>
+            <code class="ruby">        format.json { render :show, status: :created, location: @campaign }</code>
           </li>
         </div>
       
@@ -1711,51 +1711,51 @@
 
             
 
+            <code class="ruby">      else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="65">
+            
+            
+
+            
+
+            <code class="ruby">        format.json { render json: @campaign.errors, status: :unprocessable_entity }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="66">
+            
+            
+
+            
+
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="64">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="65">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def delete</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="67">
-            
-            
-
-            
-
-            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
           </li>
         </div>
       
@@ -1788,7 +1788,7 @@
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">  def edit</code>
           </li>
         </div>
       
@@ -1804,29 +1804,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="72">
-            
-            
-
-            
-
-            <code class="ruby">    @campaign.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="73">
-            
-            
-
-            
-
-            <code class="ruby">    redirect_to campaigns_path</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="74">
+          <li class="never" data-hits="" data-linenumber="72">
             
             
 
@@ -1837,7 +1815,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="75">
+          <li class="never" data-hits="" data-linenumber="73">
             
             
 
@@ -1848,29 +1826,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="76">
+          <li class="covered" data-hits="1" data-linenumber="74">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  private</code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="77">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def set_campaign</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="78">
+          <li class="missed" data-hits="0" data-linenumber="75">
             
             
 
@@ -1881,13 +1848,46 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="79">
+          <li class="missed" data-hits="0" data-linenumber="76">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    if @campaign.update(campaign_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="77">
+            
+            
+
+            
+
+            <code class="ruby">      redirect_to @campaign</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="78">
+            
+            
+
+            
+
+            <code class="ruby">    else</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="79">
+            
+            
+
+            
+
+            <code class="ruby">      render &#39;edit&#39;</code>
           </li>
         </div>
       
@@ -1898,34 +1898,12 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="81">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def campaign_params</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="82">
-            
-            
-
-            
-
-            <code class="ruby">    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
+          <li class="never" data-hits="" data-linenumber="81">
             
             
 
@@ -1936,7 +1914,216 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="84">
+          <li class="never" data-hits="" data-linenumber="82">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="83">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def delete</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="84">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="86">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="87">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="88">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="89">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">    redirect_to campaigns_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="92">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="93">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="94">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def set_campaign</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="95">
+            
+            
+
+            
+
+            <code class="ruby">    @campaign = Campaign.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="96">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="98">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def campaign_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="99">
+            
+            
+
+            
+
+            <code class="ruby">    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="100">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="101">
             
             
 
@@ -1956,7 +2143,7 @@
     <h3>app/controllers/donations_controller.rb</h3>
     <h4>
       <span class="red">
-  24.19%
+  23.94%
 </span>
 
       lines covered
@@ -1965,9 +2152,9 @@
     
 
     <div class="t-line-summary">
-      <b>62</b> relevant lines.
-      <span class="green"><b>15</b> lines covered</span> and
-      <span class="red"><b>47</b> lines missed.</span>
+      <b>71</b> relevant lines.
+      <span class="green"><b>17</b> lines covered</span> and
+      <span class="red"><b>54</b> lines missed.</span>
     </div>
 
     
@@ -2457,29 +2644,29 @@
 
             
 
-            <code class="ruby">  def show</code>
+            <code class="ruby">  require &#39;csv&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="45">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="45">
+            <span class="hits">1</span>
             
 
-            <code class="ruby">    @donation = Donation.find(params[:id])</code>
+            
+
+            <code class="ruby">  def upload_csv</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="missed" data-hits="0" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    uploaded_file = params[:csv_file]</code>
           </li>
         </div>
       
@@ -2490,18 +2677,18 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="48">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="48">
+            
             
 
             
 
-            <code class="ruby">  def new</code>
+            <code class="ruby">    begin</code>
           </li>
         </div>
       
@@ -2512,144 +2699,34 @@
 
             
 
-            <code class="ruby">    @donation = Donation.new</code>
+            <code class="ruby">      CSV.foreach(uploaded_file.path, headers: true) do |row|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="50">
+          <li class="missed" data-hits="0" data-linenumber="50">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        donation_data = row.to_h</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="51">
+          <li class="missed" data-hits="0" data-linenumber="51">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">        Donation.create!(donation_data)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="52">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  def create</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="53">
-            
-            
-
-            
-
-            <code class="ruby">    @donation = Donation.new(donation_params)</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="54">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="55">
-            
-            
-
-            
-
-            <code class="ruby">    respond_to do |format|</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="56">
-            
-            
-
-            
-
-            <code class="ruby">      if @donation.save</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="57">
-            
-            
-
-            
-
-            <code class="ruby">        format.html { redirect_to donations_url, notice: &quot;Donation was successfully created.&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="58">
-            
-            
-
-            
-
-            <code class="ruby">        format.json { render :show, status: :created, location: @donation }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="59">
-            
-            
-
-            
-
-            <code class="ruby">      else</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="60">
-            
-            
-
-            
-
-            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="61">
-            
-            
-
-            
-
-            <code class="ruby">        format.json { render json: @donation.errors, status: :unprocessable_entity }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="62">
+          <li class="never" data-hits="" data-linenumber="52">
             
             
 
@@ -2660,7 +2737,40 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="63">
+          <li class="missed" data-hits="0" data-linenumber="53">
+            
+            
+
+            
+
+            <code class="ruby">      flash[:success] = &quot;CSV file uploaded successfully.&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="54">
+            
+            
+
+            
+
+            <code class="ruby">    rescue StandardError =&gt; e</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="55">
+            
+            
+
+            
+
+            <code class="ruby">      flash[:error] = &quot;Error uploading CSV file: #{e.message}&quot;</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="56">
             
             
 
@@ -2671,7 +2781,29 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="64">
+          <li class="never" data-hits="" data-linenumber="57">
+            
+            
+
+            
+
+            <code class="ruby">    </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="58">
+            
+            
+
+            
+
+            <code class="ruby">    redirect_to donations_path</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="59">
             
             
 
@@ -2682,7 +2814,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="65">
+          <li class="never" data-hits="" data-linenumber="60">
             
             
 
@@ -2693,18 +2825,18 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="66">
+          <li class="covered" data-hits="1" data-linenumber="61">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def edit</code>
+            <code class="ruby">  def show</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="67">
+          <li class="missed" data-hits="0" data-linenumber="62">
             
             
 
@@ -2715,7 +2847,7 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="68">
+          <li class="never" data-hits="" data-linenumber="63">
             
             
 
@@ -2726,35 +2858,90 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="69">
+          <li class="never" data-hits="" data-linenumber="64">
             
             
 
             
 
-            <code class="ruby">  </code>
+            <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="70">
+          <li class="covered" data-hits="1" data-linenumber="65">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def update</code>
+            <code class="ruby">  def new</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="71">
+          <li class="missed" data-hits="0" data-linenumber="66">
             
             
 
             
 
-            <code class="ruby">    @donation = Donation.find(params[:id])</code>
+            <code class="ruby">    @donation = Donation.new</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="67">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="68">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="69">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def create</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="70">
+            
+            
+
+            
+
+            <code class="ruby">    @donation = Donation.new(donation_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="71">
+            
+            
+
+            
+
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -2776,7 +2963,7 @@
 
             
 
-            <code class="ruby">      if @donation.update(donation_params)</code>
+            <code class="ruby">      if @donation.save</code>
           </li>
         </div>
       
@@ -2787,7 +2974,7 @@
 
             
 
-            <code class="ruby">        format.html { redirect_to donations_url, notice: &quot;Donation was successfully updated.&quot; }</code>
+            <code class="ruby">        format.html { redirect_to donations_url, notice: &quot;Donation was successfully created.&quot; }</code>
           </li>
         </div>
       
@@ -2798,7 +2985,7 @@
 
             
 
-            <code class="ruby">        format.json { render :show, status: :ok, location: @donation }</code>
+            <code class="ruby">        format.json { render :show, status: :created, location: @donation }</code>
           </li>
         </div>
       
@@ -2820,7 +3007,7 @@
 
             
 
-            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
+            <code class="ruby">        format.html { render :new, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -2875,40 +3062,40 @@
 
             
 
-            <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="83">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="84">
+          <li class="covered" data-hits="1" data-linenumber="83">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def delete</code>
+            <code class="ruby">  def edit</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="85">
+          <li class="missed" data-hits="0" data-linenumber="84">
             
             
 
             
 
             <code class="ruby">    @donation = Donation.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="85">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -2919,34 +3106,23 @@
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">  </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="87">
-            
-            
-
-            
-
-            <code class="ruby"></code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="88">
+          <li class="covered" data-hits="1" data-linenumber="87">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  def destroy</code>
+            <code class="ruby">  def update</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="89">
+          <li class="missed" data-hits="0" data-linenumber="88">
             
             
 
@@ -2957,18 +3133,7 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="90">
-            
-            
-
-            
-
-            <code class="ruby">    @donation.destroy</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="91">
+          <li class="missed" data-hits="0" data-linenumber="89">
             
             
 
@@ -2979,46 +3144,68 @@
         </div>
       
         <div>
+          <li class="missed" data-hits="0" data-linenumber="90">
+            
+            
+
+            
+
+            <code class="ruby">      if @donation.update(donation_params)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="91">
+            
+            
+
+            
+
+            <code class="ruby">        format.html { redirect_to donations_url, notice: &quot;Donation was successfully updated.&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="missed" data-hits="0" data-linenumber="92">
             
             
 
             
 
-            <code class="ruby">      format.html { redirect_to donations_url, notice: &#39;Donation was successfully deleted.&#39; }</code>
+            <code class="ruby">        format.json { render :show, status: :ok, location: @donation }</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="93">
+          <li class="never" data-hits="" data-linenumber="93">
             
             
 
             
 
-            <code class="ruby">      format.json { head :no_content }</code>
+            <code class="ruby">      else</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="94">
+          <li class="missed" data-hits="0" data-linenumber="94">
             
             
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">        format.html { render :edit, status: :unprocessable_entity }</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="95">
+          <li class="missed" data-hits="0" data-linenumber="95">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">        format.json { render json: @donation.errors, status: :unprocessable_entity }</code>
           </li>
         </div>
       
@@ -3029,40 +3216,40 @@
 
             
 
+            <code class="ruby">      end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="97">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="98">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="99">
+            
+            
+
+            
+
             <code class="ruby">  </code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="97">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  private</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="98">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    def set_donation</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="99">
-            
-            
-
-            
-
-            <code class="ruby">      @donation = Donation.find(params[:id])</code>
           </li>
         </div>
       
@@ -3073,40 +3260,40 @@
 
             
 
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="101">
-            
-            
-
-            
-
             <code class="ruby"></code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="102">
+          <li class="covered" data-hits="1" data-linenumber="101">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">    def donation_params</code>
+            <code class="ruby">  def delete</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="103">
+          <li class="missed" data-hits="0" data-linenumber="102">
             
             
 
             
 
-            <code class="ruby">      params.require(:donation).permit(:donor_name, :amount, :donation_date, :campaign_id)</code>
+            <code class="ruby">    @donation = Donation.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="103">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -3117,12 +3304,100 @@
 
             
 
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="105">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  def destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="106">
+            
+            
+
+            
+
+            <code class="ruby">    @donation = Donation.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="107">
+            
+            
+
+            
+
+            <code class="ruby">    @donation.destroy</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="108">
+            
+            
+
+            
+
+            <code class="ruby">    respond_to do |format|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="109">
+            
+            
+
+            
+
+            <code class="ruby">      format.html { redirect_to donations_url, notice: &#39;Donation was successfully deleted.&#39; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="110">
+            
+            
+
+            
+
+            <code class="ruby">      format.json { head :no_content }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="111">
+            
+            
+
+            
+
             <code class="ruby">    end</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="105">
+          <li class="never" data-hits="" data-linenumber="112">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="113">
             
             
 
@@ -3133,7 +3408,106 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="106">
+          <li class="covered" data-hits="1" data-linenumber="114">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  private</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="115">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def set_donation</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="116">
+            
+            
+
+            
+
+            <code class="ruby">      @donation = Donation.find(params[:id])</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="117">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="118">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="119">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def donation_params</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="120">
+            
+            
+
+            
+
+            <code class="ruby">      params.require(:donation).permit(:donor_name, :amount, :donation_date, :campaign_id)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="121">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="122">
+            
+            
+
+            
+
+            <code class="ruby">  </code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="123">
             
             
 
@@ -5214,7 +5588,7 @@
 
             
 
-            <code class="ruby">  belongs_to :user</code>
+            <code class="ruby">  belongs_to :user, optional: true</code>
           </li>
         </div>
       
@@ -11724,8 +12098,8 @@
     
 
     <div class="t-line-summary">
-      <b>25</b> relevant lines.
-      <span class="green"><b>25</b> lines covered</span> and
+      <b>26</b> relevant lines.
+      <span class="green"><b>26</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -12122,84 +12496,18 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="36">
-            
-            
-
-            
-
-            <code class="ruby">  # campaign routes</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="37">
+          <li class="covered" data-hits="1" data-linenumber="36">
             <span class="hits">1</span>
             
 
             
 
-            <code class="ruby">  resources :campaigns, only: [:index]</code>
+            <code class="ruby">  post &#39;upload_csv&#39;, to: &#39;donations#upload_csv&#39;, as: &#39;upload_csv&#39;</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="38">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">  resources :campaigns do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="39">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">    member do</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="40">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby">      get :delete</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="41">
-            
-            
-
-            
-
-            <code class="ruby">    end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="42">
-            
-            
-
-            
-
-            <code class="ruby">  end</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="43">
+          <li class="never" data-hits="" data-linenumber="37">
             
             
 
@@ -12210,7 +12518,95 @@
         </div>
       
         <div>
+          <li class="never" data-hits="" data-linenumber="38">
+            
+            
+
+            
+
+            <code class="ruby">  # campaign routes</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="39">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  resources :campaigns, only: [:index]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="40">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">  resources :campaigns do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="41">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    member do</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="42">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">      get :delete</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="43">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
           <li class="never" data-hits="" data-linenumber="44">
+            
+            
+
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="45">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="46">
             
             
 
