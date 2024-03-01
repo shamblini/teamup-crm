@@ -3,7 +3,27 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.order(:id)
+    @groups = Group.all
+    if params[:sort]
+      column = params[:sort]
+      direction = params[:direction] == 'asc' ? 'desc' : 'asc'
+      @groups = @groups.order("#{column} #{direction}")
+    end
+    if params[:search]
+      search_groups
+    end
+  end
+
+  def search_groups
+    @groups = Group.all
+    @group = @groups.find { |group| group.name.include?(params[:search]) }
+    
+    if @group
+      redirect_to group_path(@group)
+    else
+      flash[:notice] = "No group found with that name '#{params[:search]}'."
+      redirect_to groups_path
+    end
   end
 
   # GET /groups/1 or /groups/1.json
