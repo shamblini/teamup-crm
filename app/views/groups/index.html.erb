@@ -7,6 +7,7 @@
     <th>#</th>
     <th>Name</th>
     <th>Organization Type</th>
+    <th>Total Donations</th>
     <th>Actions</th>
   </tr>
   <% @groups.each do |group| %>
@@ -14,6 +15,7 @@
       <td style="text-align: center;"><%= group.id %></td>
       <td style="text-align: center;"><%= group.name %></td>
       <td style="text-align: center;"><%= group.org_type %></td>
+      <td style="text-align: center;"><%= number_to_currency(group.calculate_total_donations, unit: '$', precision: 2) %></td>
       <td style="text-align: center;">
         <%= link_to "Show", group_path(group), class: 'action show' %>
         <%= link_to "Edit", edit_group_path(group), class: 'action edit'  %>

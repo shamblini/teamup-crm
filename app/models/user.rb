@@ -7,4 +7,9 @@ class User < ApplicationRecord
   USER_READ = 2
   USER_UPDATE = 4
   USER_DELETE = 8
+
+  has_many :donations
+  def calculate_total_donations
+    donations.sum(:amount)
+  end
 end
