@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :groups do
     member do
       get :delete
+      get 'list_users'
+      get 'donation_history'
     end
   end
 

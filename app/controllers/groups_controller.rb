@@ -4,25 +4,12 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def index
     @groups = Group.all
+    @groups = @groups.where(org_type: params[:org_type]) if params[:org_type].present?
+    @groups = @groups.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
     if params[:sort]
       column = params[:sort]
       direction = params[:direction] == 'asc' ? 'desc' : 'asc'
       @groups = @groups.order("#{column} #{direction}")
-    end
-    if params[:search]
-      search_groups
-    end
-  end
-
-  def search_groups
-    @groups = Group.all
-    @group = @groups.find { |group| group.name.include?(params[:search]) }
-    
-    if @group
-      redirect_to group_path(@group)
-    else
-      flash[:notice] = "No group found with that name '#{params[:search]}'."
-      redirect_to groups_path
     end
   end
 
@@ -30,6 +17,16 @@ class GroupsController < ApplicationController
   def show
     @group = Group.find(params[:id])
     @users = @group.users.includes(:donations).map { |user| user.attributes.merge(total_donations: user.calculate_total_donations) }
+  end
+
+  def list_users
+    @group = Group.find(params[:id])
+    @users = @group.users
+  end
+  
+  def donation_history
+    @group = Group.find(params[:id])
+    @donations = Donation.where(user_id: @group.users.pluck(:id))
   end
 
   # GET /groups/new
