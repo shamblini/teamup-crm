@@ -17,10 +17,7 @@
             <th><%= f.label :user_type %></th>
             <td><%= f.select :user_type, ['Admin', 'Staff', 'Volunteer/Donor', 'Other'], prompt: 'Select User Type' %></td>
         </tr>
-        <tr>
-            <th><%= f.label :permission_set %></th>
-            <td><%= f.number_field :permission_set %></td>
-        </tr>
+        
         <tr>
             <th><%= f.label :group_id %></th>
             <td> <%= f.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %></td>
