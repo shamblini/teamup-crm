@@ -25,7 +25,7 @@
         <td style="text-align: center;">
           <%= link_to user.group_name, group_path(user.group), class: 'group-link' %>
         </td>
-        <td style="text-align: center;"><%= number_to_currency(user.calculate_total_donations, unit: '$', precision: 2) %></td>
+        <td style="text-align: center;"><%= number_to_currency(user.total_donations, unit: '$', precision: 2) %></td>
         <td style="text-align: center;">
           <%= link_to 'Show', user %>
           <%= link_to 'Edit', edit_user_path(user) %>

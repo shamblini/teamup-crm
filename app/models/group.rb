@@ -4,5 +4,6 @@ class Group < ApplicationRecord
     has_many :users
     def calculate_total_donations
         self.total_donations = users.joins(:donations).sum('donations.amount')
+        save
     end
 end
