@@ -3,11 +3,35 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
-    @groups = Group.order(:id)
+    @groups = Group.all
+    @groups = @groups.where(org_type: params[:org_type]) if params[:org_type].present?
+    @groups = @groups.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    if params[:sort]
+      column = params[:sort]
+      direction = params[:direction] == 'asc' ? 'desc' : 'asc'
+      @groups = @groups.order("#{column} #{direction}")
+    end
   end
 
   # GET /groups/1 or /groups/1.json
   def show
+    @group = Group.find(params[:id])
+    @users = @group.users.includes(:donations).map { |user| user.attributes.merge(total_donations: user.calculate_total_donations) }
+  end
+
+  def list_users
+    @group = Group.find(params[:id])
+    @users = @group.users
+    if params[:sort]
+      column = params[:sort]
+      direction = params[:direction] == 'asc' ? 'desc' : 'asc'
+      @users = @users.order("#{column} #{direction}")
+    end
+  end
+  
+  def donation_history
+    @group = Group.find(params[:id])
+    @donations = Donation.where(user_id: @group.users.pluck(:id))
   end
 
   # GET /groups/new

@@ -6,6 +6,23 @@ class UsersController < ApplicationController
       @users = User.order(:id)
       render :index
     end
+
+    require 'csv'
+    def upload_csv
+      uploaded_file = params[:csv_file]
+      
+      begin
+        CSV.foreach(uploaded_file.path, headers: true) do |row|
+          user_data = row.to_h
+          User.create!(user_data)
+        end
+        flash[:success] = "CSV file uploaded successfully."
+      rescue StandardError => e
+        flash[:error] = "Error uploading CSV file: #{e.message}"
+      end
+      
+      redirect_to donations_path
+    end
   
     # GET /users/1
     def show

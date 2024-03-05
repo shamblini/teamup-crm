@@ -1,27 +1,35 @@
-<%= link_to "Back to groups", groups_path %>
+<%= link_to "Back to Index", groups_path %>
 
 <h1>Details</h1>
 
 <table summary="Group detail view">
-    <tr>
-      <th>Name</th>
-      <td><%= @group.name %></td>
-    </tr>
-    <tr>
-      <th>Organization Type</th>
-      <td><%= @group.org_type %></td>
-    </tr>
-      <th>Created</th>
-      <td><%= @group.created_at %></td>
-    </tr>
-    <tr>
-      <th>Updated</th>
-      <td><%= @group.updated_at %></td>
-    </tr>
-  </table>
+  <tr>
+    <th>Name</th>
+    <td><%= @group.name %></td>
+  </tr>
+  <tr>
+    <th>Organization Type</th>
+    <td><%= @group.org_type %></td>
+  </tr>
+  <tr>
+    <th>Total Donations</th>
+    <td><%= number_to_currency(@group.calculate_total_donations, unit: '$', precision: 2) %></td>
+  </tr>
+    <th>Created</th>
+    <td><%= @group.created_at %></td>
+  </tr>
+  <tr>
+    <th>Updated</th>
+    <td><%= @group.updated_at %></td>
+  </tr>
+</table>
 
 <div>
   <%= link_to "Edit this group", edit_group_path(@group) %> |
 
-  <%= link_to "Delete this group", delete_group_path(@group) %>
+  <%= link_to "Delete this group", delete_group_path(@group) %> |
+
+  <%= link_to 'View Users', list_users_group_path(@group) %> |
+
+  <%= link_to 'View Donations', donation_history_group_path(@group) %>
 </div>

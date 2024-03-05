@@ -1,0 +1,4 @@
+<%= form_with(url: upload_csv_path, method: :post, multipart: true) do |form| %>
+  <%= form.file_field :csv_file %>
+  <%= form.submit 'Upload CSV' %>
+<% end %>
