@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_04_201927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "org_type"
+    t.decimal "total_donations", default: "0.0"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
     t.datetime "updated_at", null: false
     t.bigint "logs_id"
     t.bigint "group_id"
+    t.decimal "total_donations", default: "0.0"
     t.index ["donations_id"], name: "index_users_on_donations_id"
     t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["logs_id"], name: "index_users_on_logs_id"

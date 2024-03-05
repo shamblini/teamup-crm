@@ -1,4 +1,4 @@
-<%= link_to "Back to groups", groups_path %>
+<%= link_to "Back to Index", groups_path %>
 
 <h1>Details</h1>
 
@@ -27,29 +27,9 @@
 <div>
   <%= link_to "Edit this group", edit_group_path(@group) %> |
 
-  <%= link_to "Delete this group", delete_group_path(@group) %>
-</div>
+  <%= link_to "Delete this group", delete_group_path(@group) %> |
 
-<h1>Users List</h1>
-<table class="listing" summary="Group list" style="width: 100%;">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @group.users.each do |user| %>
-      <tr>
-        <td style="text-align: center;"><%= user.name %></td>
-        <td style="text-align: center;"><%= user.user_type %></td>
-        <td style="text-align: center;">
-          <%= link_to 'Show', user_path(user) %>
-          <%= link_to 'Edit', edit_user_path(user) %>
-          <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <%= link_to 'View Users', list_users_group_path(@group) %> |
+
+  <%= link_to 'View Donations', donation_history_group_path(@group) %>
+</div>
