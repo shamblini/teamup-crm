@@ -33,13 +33,6 @@
     <%= form.text_field :donations %>
   </div>
 
-  <% User.constants.grep(/_PERMISSION\z/).each do |permission| %>
-    <div class="field">
-      <%= form.check_box permission, {}, User.const_get(permission) %>
-      <%= form.label permission %>
-    </div>
-  <% end %>
-
   <%= form.label :group_id %>
   <%= form.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %>
 
