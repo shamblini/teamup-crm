@@ -24,8 +24,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_type %>
-    <%= form.text_field :user_type %>
+    <%= form.label :user_type %></th>
+    <%= form.select :user_type, ['Admin', 'Staff', 'Volunteer/Donor', 'Other'], prompt: 'Select User Type' %></td>
   </div>
 
   <div class="field">
@@ -33,10 +33,15 @@
     <%= form.text_field :donations %>
   </div>
 
-  <div class="field">
-    <%= form.label :permission_set %>
-    <%= form.text_field :permission_set %>
-  </div>
+  <% User.constants.grep(/_PERMISSION\z/).each do |permission| %>
+    <div class="field">
+      <%= form.check_box permission, {}, User.const_get(permission) %>
+      <%= form.label permission %>
+    </div>
+  <% end %>
+
+  <%= form.label :group_id %>
+  <%= form.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %>
 
   <div class="actions">
     <%= form.submit %>
