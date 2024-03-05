@@ -31,7 +31,7 @@
   <tbody>
     <% @donations.each do |donation| %>
       <tr>
-        <td><%= link_to donation.donor_name, donation_path(donation) %></td>
+        <td><%= donation.user ? link_to(donation.user.name, user_path(donation.user)) : "N/A" %></td>
         <td><%= number_to_currency(donation.amount, unit: '$', precision: 2) %></td>
         <td><%= donation.donation_date.strftime("%m/%d/%Y") %></td>
         <td><%= donation.campaign ? donation.campaign.name : "-" %></td>
