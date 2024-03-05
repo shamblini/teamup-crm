@@ -22,6 +22,11 @@ class GroupsController < ApplicationController
   def list_users
     @group = Group.find(params[:id])
     @users = @group.users
+    if params[:sort]
+      column = params[:sort]
+      direction = params[:direction] == 'asc' ? 'desc' : 'asc'
+      @users = @users.order("#{column} #{direction}")
+    end
   end
   
   def donation_history
