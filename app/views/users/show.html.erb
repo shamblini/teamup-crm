@@ -5,7 +5,6 @@
 <p><strong>Email:</strong> <%= @user.email %></p>
 <p><strong>User Type:</strong> <%= @user.user_type %></p>
 <p><strong>Donations:</strong> <%= number_to_currency(@user.calculate_total_donations, unit: '$', precision: 2) %></p>
-<p><strong>Permission Set:</strong> <%= @user.permission_set %></p>
 <p><strong>Group:</strong> <%= @user.group_name %></p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
