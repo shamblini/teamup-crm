@@ -20,6 +20,13 @@ User.create!(
 
 # Create a user with email and assign them to the root group
 User.create!(
+  email: 'zaneaggie24@tamu.edu',
+  user_type: 'staff',
+  group: root_group  # Use the object reference directly
+)
+
+# Create a user with email and assign them to the root group
+User.create!(
   email: 'jonnguyenle@gmail.com',
   user_type: 'staff',
   group: root_group  # Use the object reference directly
@@ -28,6 +35,13 @@ User.create!(
 # Create a user with email and assign them to the root group
 User.create!(
   email: 'teamupcrm@gmail.com',
+  user_type: 'staff',
+  group: root_group  # Use the object reference directly
+)
+
+# Create a user with email and assign them to the root group
+User.create!(
+  email: 'kotda@tamu.edu',
   user_type: 'staff',
   group: root_group  # Use the object reference directly
 )
