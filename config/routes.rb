@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donations/index'
   root 'dashboards#show'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
     get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
+  
   get '/groups', to: 'groups#index'
   resources :groups do
     member do
@@ -23,8 +25,22 @@ Rails.application.routes.draw do
     end
   end
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # donation routes
+  resources :donations, only: [:index]
+  resources :donations do
+    member do
+      get :delete
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  post 'upload_csv', to: 'donations#upload_csv', as: 'upload_csv'
+
+  # campaign routes
+  resources :campaigns, only: [:index]
+  resources :campaigns do
+    member do
+      get :delete
+    end
+  end
+
 end
