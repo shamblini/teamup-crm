@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/csce431/teamup-crm/spec/features/campaign_spec.rb": {
+      "/csce431/teamup-crm/spec/features/campaign_spec.rb": {
         "lines": [
           null,
           null,
@@ -26,7 +26,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/rails_helper.rb": {
+      "/csce431/teamup-crm/spec/rails_helper.rb": {
         "lines": [
           null,
           null,
@@ -101,7 +101,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/environment.rb": {
+      "/csce431/teamup-crm/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -110,7 +110,7 @@
           1
         ]
       },
-      "/home/csce431/teamup-crm/config/application.rb": {
+      "/csce431/teamup-crm/config/application.rb": {
         "lines": [
           1,
           null,
@@ -136,7 +136,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/boot.rb": {
+      "/csce431/teamup-crm/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -144,7 +144,7 @@
           1
         ]
       },
-      "/home/csce431/teamup-crm/config/environments/test.rb": {
+      "/csce431/teamup-crm/config/environments/test.rb": {
         "lines": [
           1,
           null,
@@ -208,7 +208,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/application_controller_renderer.rb": {
+      "/csce431/teamup-crm/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -220,7 +220,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/assets.rb": {
+      "/csce431/teamup-crm/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -236,7 +236,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/backtrace_silencers.rb": {
+      "/csce431/teamup-crm/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -248,7 +248,7 @@
           1
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/content_security_policy.rb": {
+      "/csce431/teamup-crm/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -277,7 +277,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/cookies_serializer.rb": {
+      "/csce431/teamup-crm/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -286,7 +286,7 @@
           1
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/devise.rb": {
+      "/csce431/teamup-crm/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -607,7 +607,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/filter_parameter_logging.rb": {
+      "/csce431/teamup-crm/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -619,7 +619,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/inflections.rb": {
+      "/csce431/teamup-crm/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -639,7 +639,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/mime_types.rb": {
+      "/csce431/teamup-crm/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -647,7 +647,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/permissions_policy.rb": {
+      "/csce431/teamup-crm/config/initializers/permissions_policy.rb": {
         "lines": [
           null,
           null,
@@ -662,7 +662,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/initializers/wrap_parameters.rb": {
+      "/csce431/teamup-crm/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -680,7 +680,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/config/routes.rb": {
+      "/csce431/teamup-crm/config/routes.rb": {
         "lines": [
           1,
           1,
@@ -730,10 +730,13 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/admin.rb": {
+      "/csce431/teamup-crm/app/models/user.rb": {
         "lines": [
           1,
-          null,
+          1,
+          1,
+          1,
+          1,
           null,
           1,
           null,
@@ -741,10 +744,15 @@
           null,
           0,
           null,
+          null,
+          1,
+          1,
+          0,
+          null,
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/application_record.rb": {
+      "/csce431/teamup-crm/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -753,7 +761,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/application_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -761,7 +769,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/books_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/books_helper.rb": {
         "lines": [
           null,
           null,
@@ -769,37 +777,37 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/campaigns_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/campaigns_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/donations_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/donations_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/groups_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/groups_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/login_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/login_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/helpers/user_helper.rb": {
+      "/csce431/teamup-crm/app/helpers/user_helper.rb": {
         "lines": [
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/features/donation_spec.rb": {
+      "/csce431/teamup-crm/spec/features/donation_spec.rb": {
         "lines": [
           null,
           null,
@@ -832,7 +840,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/helpers/campaigns_helper_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/campaigns_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -851,7 +859,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/helpers/donations_helper_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/donations_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -870,7 +878,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/helpers/groups_helper_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/groups_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -889,7 +897,24 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/helpers/login_helper_spec.rb": {
+      "/csce431/teamup-crm/spec/helpers/login_helper_spec.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/helpers/user_helper_spec.rb": {
         "lines": [
           1,
           null,
@@ -908,26 +933,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/helpers/user_helper_spec.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null
-        ]
-      },
-      "/home/csce431/teamup-crm/spec/models/admin_spec.rb": {
+      "/csce431/teamup-crm/spec/models/admin_spec.rb": {
         "lines": [
           1,
           null,
@@ -936,7 +942,21 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/book_spec.rb": {
+      "/csce431/teamup-crm/app/models/admin.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          1,
+          null,
+          1,
+          null,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/models/book_spec.rb": {
         "lines": [
           null,
           null,
@@ -950,7 +970,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/book.rb": {
+      "/csce431/teamup-crm/app/models/book.rb": {
         "lines": [
           null,
           null,
@@ -958,7 +978,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/campaign_spec.rb": {
+      "/csce431/teamup-crm/spec/models/campaign_spec.rb": {
         "lines": [
           1,
           null,
@@ -1005,7 +1025,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/campaign.rb": {
+      "/csce431/teamup-crm/app/models/campaign.rb": {
         "lines": [
           1,
           1,
@@ -1044,7 +1064,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/donation_spec.rb": {
+      "/csce431/teamup-crm/spec/models/donation_spec.rb": {
         "lines": [
           null,
           null,
@@ -1093,7 +1113,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/donation.rb": {
+      "/csce431/teamup-crm/app/models/donation.rb": {
         "lines": [
           1,
           1,
@@ -1106,7 +1126,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/group_spec.rb": {
+      "/csce431/teamup-crm/spec/models/group_spec.rb": {
         "lines": [
           1,
           null,
@@ -1115,7 +1135,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/group.rb": {
+      "/csce431/teamup-crm/app/models/group.rb": {
         "lines": [
           1,
           1,
@@ -1127,7 +1147,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/log_spec.rb": {
+      "/csce431/teamup-crm/spec/models/log_spec.rb": {
         "lines": [
           1,
           null,
@@ -1136,18 +1156,17 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/models/log.rb": {
+      "/csce431/teamup-crm/app/models/log.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/models/user_spec.rb": {
+      "/csce431/teamup-crm/spec/models/user_spec.rb": {
         "lines": [
           1,
           null,
-          null,
           1,
           1,
           1,
@@ -1169,26 +1188,17 @@
           0,
           0,
           0,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
+          null
           null,
           null,
           null,
           1,
+          1,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
+          1,
+          1,
+          null,
+          null,
           null,
           null,
           null
@@ -1213,7 +1223,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/requests/campaigns_spec.rb": {
+      "/home/csce431/teamup-crm/spec/requests/campaigns_spec.rb": 
         "lines": [
           1,
           null,
@@ -1224,7 +1234,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/requests/donations_spec.rb": {
+      "/csce431/teamup-crm/spec/requests/donations_spec.rb": {
         "lines": [
           1,
           null,
@@ -1239,7 +1249,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/requests/groups_spec.rb": {
+      "/csce431/teamup-crm/spec/requests/groups_spec.rb": {
         "lines": [
           1,
           null,
@@ -1374,22 +1384,14 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/requests/login_spec.rb": {
+      "/csce431/teamup-crm/spec/requests/login_spec.rb": {
         "lines": [
           1,
-          null,
-          1,
-          1,
-          1,
-          1,
-          0,
-          null,
-          null,
           null,
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/requests/user_spec.rb": {
+      "/csce431/teamup-crm/spec/requests/user_spec.rb": {
         "lines": [
           1,
           null,
@@ -1400,7 +1402,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/routing/groups_routing_spec.rb": {
+      "/csce431/teamup-crm/spec/routing/groups_routing_spec.rb": {
         "lines": [
           1,
           null,
@@ -1442,7 +1444,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/controllers/groups_controller.rb": {
+      "/csce431/teamup-crm/app/controllers/groups_controller.rb": {
         "lines": [
           1,
           1,
@@ -1522,7 +1524,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/controllers/application_controller.rb": {
+      "/csce431/teamup-crm/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -1531,7 +1533,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/views/donations/index.html.erb_spec.rb": {
+      "/csce431/teamup-crm/spec/views/donations/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1540,74 +1542,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/views/groups/edit.html.erb_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/csce431/teamup-crm/spec/views/groups/index.html.erb_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null
-        ]
-      },
-      "/home/csce431/teamup-crm/spec/views/groups/new.html.erb_spec.rb": {
-        "lines": [
-          1,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          1,
-          1,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "/home/csce431/teamup-crm/spec/views/groups/show.html.erb_spec.rb": {
+      "/csce431/teamup-crm/spec/views/groups/edit.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1620,12 +1555,79 @@
           null,
           1,
           0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/views/groups/index.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
           0,
           null,
           null
         ]
       },
-      "/home/csce431/teamup-crm/spec/views/login/index.html.erb_spec.rb": {
+      "/csce431/teamup-crm/spec/views/groups/new.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/views/groups/show.html.erb_spec.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          0,
+          0,
+          null,
+          null
+        ]
+      },
+      "/csce431/teamup-crm/spec/views/login/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1634,7 +1636,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/controllers/campaigns_controller.rb": {
+      "/csce431/teamup-crm/app/controllers/campaigns_controller.rb": {
         "lines": [
           1,
           1,
@@ -1739,7 +1741,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/controllers/admins/sessions_controller.rb": {
+      "/csce431/teamup-crm/app/controllers/users/sessions_controller.rb": {
         "lines": [
           1,
           1,
@@ -1752,7 +1754,7 @@
           null
         ]
       },
-      "/home/csce431/teamup-crm/app/controllers/donations_controller.rb": {
+      "/csce431/teamup-crm/app/controllers/donations_controller.rb": {
         "lines": [
           1,
           1,

@@ -71,6 +71,8 @@ class DonationsController < ApplicationController
 
     respond_to do |format|
       if @donation.save
+        @donation.user.calculate_total_donations
+        @donation.user.group.calculate_total_donations
         format.html { redirect_to donations_url, notice: "Donation was successfully created." }
         format.json { render :show, status: :created, location: @donation }
       else

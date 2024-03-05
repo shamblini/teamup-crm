@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "org_type"
+    t.decimal "total_donations", default: "0.0"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -60,14 +61,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_02_27_192640) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
-    t.string "user_type"
+    t.string "user_type", default: "Volunteer/Donor"
     t.bigint "donations_id"
-    t.integer "permission_set", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "logs_id"
     t.bigint "group_id"
+    t.boolean "is_admin", default: false
+    t.decimal "total_donations", default: "0.0"
     t.index ["donations_id"], name: "index_users_on_donations_id"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["logs_id"], name: "index_users_on_logs_id"
   end
