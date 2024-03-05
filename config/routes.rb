@@ -9,9 +9,12 @@ Rails.application.routes.draw do
   end
   
   get '/groups', to: 'groups#index'
+  resources :groups
   resources :groups do
     member do
       get :delete
+      get 'list_users'
+      get 'donation_history'
     end
   end
 

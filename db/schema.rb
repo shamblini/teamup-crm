@@ -48,6 +48,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "org_type"
+    t.decimal "total_donations", default: "0.0"
   end
 
   create_table "logs", force: :cascade do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.bigint "logs_id"
     t.bigint "group_id"
     t.boolean "is_admin", default: false
+    t.decimal "total_donations", default: "0.0"
     t.index ["donations_id"], name: "index_users_on_donations_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["group_id"], name: "index_users_on_group_id"
