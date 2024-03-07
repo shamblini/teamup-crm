@@ -1,0 +1,29 @@
+<%= link_to 'Back to Group', :back %>
+
+<h1>Users List</h1>
+<table class="listing" summary="Users list" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>User Type</th>
+      <th>Total Donations</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @group.users.each do |user| %>
+      <tr>
+        <td style="text-align: center;"><%= user.name %></td>
+        <td style="text-align: center;"><%= user.email %></td>
+        <td style="text-align: center;"><%= user.user_type %></td>
+        <td style="text-align: center;"><%= number_to_currency(user.total_donations, unit: '$', precision: 2) %></td>
+        <td style="text-align: center;">
+          <%= link_to 'Show', user_path(user) %>
+          <%= link_to 'Edit', edit_user_path(user) %>
+          <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

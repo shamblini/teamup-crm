@@ -1,0 +1,40 @@
+<%= render 'shared/header' %>
+
+<!-- app/views/users/index.html.erb -->
+
+<%= render partial: 'csv' %>
+
+<h1>Users</h1>
+<table class="listing" summary="Group list" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>User Type</th>
+      <th>Group Name</th>
+      <th>Total Donations</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td style="text-align: center;"><%= user.id %></td>
+        <td style="text-align: center;"><%= user.name %></td>
+        <td style="text-align: center;"><%= user.email %></td>
+        <td style="text-align: center;"><%= user.user_type %></td>
+        <td style="text-align: center;">
+          <%= link_to user.group_name, group_path(user.group), class: 'group-link' %>
+        </td>
+        <td style="text-align: center;"><%= number_to_currency(user.total_donations, unit: '$', precision: 2) %></td>
+        <td style="text-align: center;">
+          <%= link_to 'Show', user %>
+          <%= link_to 'Edit', edit_user_path(user) %>
+          <%= link_to("Delete", delete_user_path(user), class: 'action delete') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'New User', new_user_path %>

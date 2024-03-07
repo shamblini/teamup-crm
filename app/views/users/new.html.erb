@@ -1,0 +1,9 @@
+<!-- app/views/users/new.html.erb -->
+
+<%= link_to 'Back to Users', users_path %>
+
+<h1>New User</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= render 'form', model_name: @model_name %>
+<% end %>

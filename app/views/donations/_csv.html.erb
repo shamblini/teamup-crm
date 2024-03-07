@@ -1,0 +1,9 @@
+<div class="alert alert-info">
+  Make sure to upload the users first so the donations have a reference
+</div>
+
+
+<%= form_with(url: upload_csv_path, method: :post, multipart: true) do |form| %>
+  <%= form.file_field :csv_file %>
+  <%= form.submit 'Upload CSV' %>
+<% end %>

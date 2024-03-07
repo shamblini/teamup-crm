@@ -1,0 +1,25 @@
+<%= link_to 'Back to Group', :back %>
+
+<h1>Editing Group</h1>
+
+<div class="groups Edit">
+  <%= form_for(@group) do |f| %>
+    <% # url: groups_path, method: 'patch' %>
+    <table summary="Group form fields">
+      <tr>
+        <th><%= f.label :name %></th>
+        <td><%= f.text_field :name %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :org_type %></th>
+        <td>
+          <%= f.select :org_type, ['Volunteer Group', 'Nonprofit', 'Company', 'College/University', 'Other'], prompt: 'Select organization type' %>
+        </td>
+      </tr>
+    </table>
+
+    <div class="form-buttons">
+      <%= f.submit("Edit Group") %>
+    </div>
+    <% end %>
+</div>

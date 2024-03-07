@@ -1,0 +1,42 @@
+<%= render 'shared/header' %>
+
+<h1>List of Donations</h1>
+
+<%= render partial: 'csv' %>
+
+<%= form_tag(donations_path, method: :get) do %>
+  <p> Search for a donation </p>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<%= form_tag(donations_path, method: :get) do %>
+  <p> Search for a campaign </p>
+  <%= text_field_tag(:campaign, params[:campaign]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<%= link_to "New Donation", new_donation_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= link_to "Donor", { sort: 'donor_name', direction: (params[:sort] == 'donor_name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Amount", { sort: 'amount', direction: (params[:sort] == 'amount' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Date", { sort: 'donation_date', direction: (params[:sort] == 'donation_date' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th><%= link_to "Campaign", { sort: 'campaign_id', direction: (params[:sort] == 'campaign' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @donations.each do |donation| %>
+      <tr>
+        <td><%= donation.user ? link_to(donation.user.name, user_path(donation.user)) : "N/A" %></td>
+        <td><%= number_to_currency(donation.amount, unit: '$', precision: 2) %></td>
+        <td><%= donation.donation_date.strftime("%m/%d/%Y") %></td>
+        <td><%= donation.campaign ? donation.campaign.name : "-" %></td>
+        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

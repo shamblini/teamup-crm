@@ -57,6 +57,7 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+  gem 'brakeman'
 end
 
 group :development do
@@ -89,3 +90,5 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-rails_csrf_protection'
 
 gem "sassc-rails"
+
+gem "action_policy"
