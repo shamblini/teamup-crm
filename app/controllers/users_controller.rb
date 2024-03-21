@@ -51,6 +51,16 @@ class UsersController < ApplicationController
     # POST /users
     def create
       @user = User.new(user_params)
+
+      if current_user.user_type.downcase != "admin" && params[:user][:user_type]&.downcase == "admin"
+        flash[:alert] = "You do not have permission to create an Admin User."
+        redirect_to users_path and return
+      end
+
+      if current_user.user_type.downcase != "admin" && current_user.group != @user.group
+        flash[:alert] = "You do not have permission to create a user not in your group"
+        redirect_to users_path and return
+      end
   
       if @user.save
         redirect_to @user, notice: 'User was successfully created.'
@@ -62,14 +72,14 @@ class UsersController < ApplicationController
     # PATCH/PUT /users/1
     def update
       @user = User.find(params[:id])
-      restrict_edit_access if @user.user_type.downcase == "staff"
+      restrict_edit_access if current_user.user_type.downcase != "admin"
 
-      if params[:user][:user_type]&.downcase == "admin"
+      if current_user.user_type.downcase != "admin" && params[:user][:user_type]&.downcase == "admin"
         flash[:alert] = "You do not have permission to change a user to Admin."
         redirect_to users_path and return
       end
 
-      if current_user.group != @user.group
+      if current_user.user_type.downcase != "admin" && current_user.group != @user.group
         flash[:alert] = "You do not have permission to change a user not in your group."
         redirect_to users_path and return
       end
@@ -85,10 +95,21 @@ class UsersController < ApplicationController
     # DELETE /users/1 or /users/1.json
     def delete
       @user = User.find(params[:id])
+
+      if current_user.user_type.downcase != "admin" && current_user.group != @user.group
+        flash[:alert] = "You do not have permission to delete a user not in your group."
+        redirect_to users_path and return
+      end
     end
 
     def destroy
       @user = User.find(params[:id])
+
+      if current_user.user_type.downcase != "admin" && current_user.group != @user.group
+        flash[:alert] = "You do not have permission to destroy a user not in your group."
+        redirect_to users_path and return
+      end
+
       @user.destroy
 
       respond_to do |format|
