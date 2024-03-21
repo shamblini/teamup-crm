@@ -1,0 +1,14 @@
+<nav>
+  <%= link_to 'Home', root_path %>
+  <%= link_to 'Users', users_path %>
+  <%= link_to 'Donations', donations_path, class: 'active' %>
+  <%= link_to 'Groups', groups_path, class: 'active' %>
+  <%= link_to 'Campaigns', campaigns_path, class: 'active' %>
+  <%= link_to "Sign Out", destroy_user_session_path %>
+</nav>
+
+<h1>You're logged in! Welcome to the Admin Dashboard!</h1>
+
+<%= link_to "View Users", users_path %>
+<p></p>
+<%= link_to "Sign Out", destroy_user_session_path %>
