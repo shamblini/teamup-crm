@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     def index
       @users = User.order(:id)
       @current_user = current_user
+      @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
       @users_to_display = []
 
   
@@ -36,16 +37,36 @@ class UsersController < ApplicationController
   
     # GET /users/1
     def show
+      if current_user.user_type.downcase != "admin" && @user.group != current_user.group
+        flash[:alert] = "You do not have permission to view that page."
+        redirect_to root_path
+      end
     end
   
     # GET /users/new
     def new
       @user = User.new
+      if current_user.user_type.downcase == "admin"
+        render 'new'
+      else
+        render 'new_staff'
+      end
     end
   
     # GET /users/1/edit
     def edit
+      @user = User.find(params[:id])
 
+      if current_user.user_type.downcase != "admin" && @user.group != current_user.group
+        flash[:alert] = "You do not have permission to view that page."
+        redirect_to root_path
+      end
+
+      if current_user.user_type.downcase == "admin"
+        render 'edit'
+      else
+        render 'edit_staff'
+      end
     end
   
     # POST /users
@@ -57,9 +78,8 @@ class UsersController < ApplicationController
         redirect_to users_path and return
       end
 
-      if current_user.user_type.downcase != "admin" && current_user.group != @user.group
-        flash[:alert] = "You do not have permission to create a user not in your group"
-        redirect_to users_path and return
+      if current_user.user_type.downcase != "admin"
+        @user.group = current_user.group
       end
   
       if @user.save

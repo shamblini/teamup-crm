@@ -2,6 +2,7 @@ class DonationsController < ApplicationController
   before_action :set_donation, only: %i[ show edit update destroy ]
 
   def index
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
     @donations = Donation.all
     if params[:sort]
       column = params[:sort]

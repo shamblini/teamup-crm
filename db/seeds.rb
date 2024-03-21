@@ -7,14 +7,14 @@ root_group = Group.create!(
 # Create a user with email and assign them to the root group
 User.create!(
   email: 'dallasocoggins@gmail.com',
-  user_type: 'staff',
+  user_type: 'Admin',
   group: root_group  # Use the object reference directly
 )
 
 # Create a user with email and assign them to the root group
 User.create!(
   email: 'dallasocoggins@tamu.edu',
-  user_type: 'donor',
+  user_type: 'Staff',
   group: root_group  # Use the object reference directly
 )
 

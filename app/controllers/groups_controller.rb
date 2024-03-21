@@ -3,6 +3,12 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
+    if current_user.user_type.downcase != "admin"
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path
+    end
+
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
     @groups = Group.all
     @groups = @groups.where(org_type: params[:org_type]) if params[:org_type].present?
     @groups = @groups.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?

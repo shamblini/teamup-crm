@@ -1,0 +1,24 @@
+<%= link_to 'Back to Users', users_path %>
+
+<!-- app/views/users/edit_staff.html.erb -->
+<h1>Edit User</h1>
+
+<%= form_for(@user) do |f| %>
+    <table summary="Group form fields">
+        <tr>
+            <th><%= f.label :name %></th>
+            <td><%= f.text_field :name %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :email %></th>
+            <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+            <th><%= f.label :user_type %></th>
+            <td><%= f.select :user_type, ['Staff', 'Volunteer/Donor', 'Other'], prompt: 'Select User Type' %></td>
+        </tr>
+    </table>
+    <div class="form-buttons">
+      <%= f.submit("Update Group") %>
+    </div>
+<% end %>
