@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_22_143054) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -70,7 +70,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.boolean "is_admin", default: false
     t.decimal "total_donations", default: "0.0"
     t.index ["donations_id"], name: "index_users_on_donations_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["group_id"], name: "index_users_on_group_id"
     t.index ["logs_id"], name: "index_users_on_logs_id"
   end
