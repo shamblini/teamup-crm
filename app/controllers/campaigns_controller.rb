@@ -52,6 +52,11 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    if current_user.user_type.downcase == "admin"
+      render 'new'
+    else
+      render 'new_staff'
+    end
   end
 
   def create
@@ -70,6 +75,18 @@ class CampaignsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:id])
+
+    # Staff only has permission to edit their group users, Admins can edit all
+    if current_user.user_type.downcase != "admin" && @user.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path
+    end
+
+    if current_user.user_type.downcase == "admin"
+      render 'edit'
+    else
+      render 'edit_staff'
+    end
   end
 
   def update
@@ -97,6 +114,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date. :group)
+    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date, :group_id)
   end
 end
