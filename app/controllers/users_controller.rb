@@ -37,7 +37,11 @@ class UsersController < ApplicationController
       
       redirect_to donations_path
     end
-  
+    
+    def donation_history
+      @user = User.find(params[:id])
+    end
+
     # GET /users/1
     def show
       if current_user.user_type.downcase != "admin" && @user.group != current_user.group

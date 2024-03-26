@@ -13,6 +13,9 @@ class User < ApplicationRecord
 
   has_many :donations
   def calculate_total_donations
-    self.total_donations = donations.sum(:amount)
+    donations.sum(:amount)
+  end
+  def count_donations
+    donations.count
   end
 end

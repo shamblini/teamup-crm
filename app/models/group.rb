@@ -4,7 +4,17 @@ class Group < ApplicationRecord
     has_many :users
     has_many :campaigns
     def calculate_total_donations
-        self.total_donations = users.joins(:donations).sum('donations.amount')
-        save
+        total_donations = 0
+        users.each do |user|
+            total_donations += user.calculate_total_donations
+        end
+        total_donations
+    end
+    def count_donations
+        total = 0
+        users.each do |user|
+            total += user.count_donations
+        end
+        total
     end
 end
