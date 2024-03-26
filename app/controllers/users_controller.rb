@@ -23,7 +23,12 @@ class UsersController < ApplicationController
       
       redirect_to donations_path
     end
-  
+    
+    def donation_history
+      @user = User.find(params[:id])
+      @donations = Donation.where(user_id: @user.pluck(:id))
+    end
+
     # GET /users/1
     def show
     end

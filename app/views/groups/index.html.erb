@@ -22,7 +22,7 @@
   <tr class="header">
     <th><%= link_to "Name", { sort: 'name', direction: (params[:sort] == 'name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
     <th><%= link_to "Organization Type", { sort: 'org_type', direction: (params[:sort] == 'org_type' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
-    <th><%= link_to "Total Donations", { sort: 'total_donations', direction: (params[:sort] == 'total_donations' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+    <th>Total Donations</th>
     <th>Actions</th>
   </tr>
   <% @groups.each do |group| %>
