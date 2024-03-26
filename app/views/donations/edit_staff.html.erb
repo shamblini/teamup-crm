@@ -1,0 +1,9 @@
+<h1>Update Donation</h1>
+
+<%= render partial: 'form_staff', locals: { donation: @donation, method: :patch } %>
+
+<%= link_to "Delete", delete_donation_path(@donation)%>
+
+<br>
+
+

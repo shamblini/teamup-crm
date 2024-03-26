@@ -48,7 +48,7 @@ class CampaignsController < ApplicationController
   end
 
   def search_campaigns
-    @campaigns = Campaign.all
+    @campaigns = Campaign.where(group: current_user.group)
     @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }
     
     if @campaign
