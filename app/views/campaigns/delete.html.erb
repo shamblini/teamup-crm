@@ -5,6 +5,7 @@
   <p><strong>Goal Amount:</strong> <%= @campaign.goal_amount %></p>
   <p><strong>Start Date:</strong> <%= @campaign.start_date %></p> 
   <p><strong>End Date:</strong> <%= @campaign.end_date %></p>
+  <p><strong>Group:</strong> <%= @campaign.group %></p>
 
   <%= form_for(@campaign, method: :delete) do |f| %>
     <p>Are you sure?</p>

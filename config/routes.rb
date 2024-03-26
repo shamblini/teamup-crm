@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'donations/index'
-  root 'dashboards#show'
+  root 'dashboards#index'
 
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   devise_scope :user do
@@ -41,6 +41,15 @@ Rails.application.routes.draw do
   # campaign routes
   resources :campaigns, only: [:index]
   resources :campaigns do
+    member do
+      get :delete
+    end
+  end
+
+  # segment routes
+
+  resources :segments, only: [:index]
+  resources :segments do
     member do
       get :delete
     end

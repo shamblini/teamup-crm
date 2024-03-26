@@ -1,0 +1,10 @@
+
+  <h1>Delete Segment</h1>
+
+  <p><strong>Segment name::</strong> <%= @donation.donor_name %></p>
+  <p><strong>Segment 
+
+  <%= form_for(@donation, method: :delete) do |f| %>
+    <p>Are you sure?</p>
+      <%= f.submit("Delete") %>
+  <% end %>

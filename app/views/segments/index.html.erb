@@ -1,0 +1,34 @@
+<%= render 'shared/header' %>
+
+<h1>Segments:</h1>
+
+<%= render partial: 'csv' %>
+
+<%= form_tag(segments_path, method: :get) do %>
+  <p> Search for a segment by name </p>
+  <%= text_field_tag(:search, params[:search]) %>
+  <%= submit_tag ("Search") %>
+<% end %>
+
+<%= link_to "New Segment", new_segment_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= link_to "Segment", { sort: 'name', direction: (params[:sort] == 'name' && params[:direction] == 'asc') ? 'desc' : 'asc' } %></th>
+      <th>Filters</th>
+      <th>Edit</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @segments.each do |segment| %>
+      <%# if it is an internal attribute, skip it %>
+      <tr>
+        <td><%= link_to segment.name, segment %></td>
+        <%# the column that shows a list of the filters used in the segment (might be shared for segment_maker)%>
+        <td><%= segment.filters.map(&:name).join(", ") %></td>
+        <td><%= link_to 'Edit', edit_segment_path(segment) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
