@@ -6,21 +6,15 @@ class UsersController < ApplicationController
       # Get all the users currently in the database by alphabetical order
       @users = User.order(:id)
 
+      if current_user.user_type != "admin"
+        @users = User.where(group: current_user.group).order(:id)
+      end
+
       # Set the current user accessing the page
       @current_user = current_user
 
       # Set the navbar based on the user status
       @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
-
-      # Initialize users to display array
-      @users_to_display = []
-
-      # Loop through all users in the database to display all to an Admin or only the group Users to a Staff
-      @users.each do |user|
-        if (@current_user.user_type.downcase != "admin" && user.group == @current_user.group) || (@current_user.user_type.downcase == "admin")
-          @users_to_display << user
-        end
-      end
 
       # Render the Index view
       render 'index'

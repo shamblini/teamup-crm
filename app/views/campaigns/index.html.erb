@@ -24,7 +24,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @campaigns_to_display.each do |campaign| %>
+    <% @campaigns.each do |campaign| %>
       <tr>
         <td><%= link_to campaign.name, campaign_path(campaign) %></td>
         <td><%= campaign.goal_amount %></td>

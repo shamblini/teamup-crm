@@ -6,19 +6,13 @@ class CampaignsController < ApplicationController
     @current_user = current_user
 
     @campaigns = Campaign.all
+    
+    if current_user.user_type.downcase != "admin"
+      @campaigns = Campaign.where(group: current_user.group)
+    end 
 
     # Set the navbar based on the user status
     @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
-
-    # Initialize users to display array
-    @campaigns_to_display = []
-
-    # Loop through all users in the database to display all to an Admin or only the group Users to a Staff
-    @campaigns.each do |campaign|
-      if (@current_user.user_type.downcase != "admin" && campaign.group == @current_user.group) || (@current_user.user_type.downcase == "admin")
-        @campaigns_to_display << campaign
-      end
-    end
 
     if params[:sort]
       column = params[:sort]
@@ -48,7 +42,12 @@ class CampaignsController < ApplicationController
   end
 
   def search_campaigns
-    @campaigns = Campaign.where(group: current_user.group)
+    @campaigns = Campaign.all
+    
+    if current_user.user_type.downcase == "admin"
+      @campaigns = Campaign.where(group: current_user.group)
+    end 
+  
     @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }
     
     if @campaign
