@@ -3,12 +3,12 @@ class GroupsController < ApplicationController
 
   # GET /groups or /groups.json
   def index
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
+
     if current_user.user_type.downcase != "admin"
-      flash[:alert] = "You do not have permission to view that page."
-      redirect_to root_path
+      redirect_to group_path(current_user.group)
     end
 
-    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
     @groups = Group.all
     @groups = @groups.where(org_type: params[:org_type]) if params[:org_type].present?
     @groups = @groups.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
@@ -21,12 +21,25 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
+
+    if current_user.user_type.downcase != "admin" && current_user.group != @group
+      flash[:alert] = "You do not have permission to view a different group."
+      redirect_to group_path(current_user.group)
+    end
+
     @group = Group.find(params[:id])
     @users = @group.users.includes(:donations).map { |user| user.attributes.merge(total_donations: user.calculate_total_donations) }
   end
 
   def list_users
     @group = Group.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && current_user.group != @group
+      flash[:alert] = "You do not have permission to view a different group."
+      redirect_to group_path(current_user.group)
+    end
+
     @users = @group.users
     if params[:sort]
       column = params[:sort]
@@ -37,25 +50,51 @@ class GroupsController < ApplicationController
   
   def donation_history
     @group = Group.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && current_user.group != @group
+      flash[:alert] = "You do not have permission to view a different group."
+      redirect_to group_path(current_user.group)
+    end
+
     @donations = Donation.where(user_id: @group.users.pluck(:id))
   end
 
   # GET /groups/new
   def new
+    if current_user.user_type.downcase != "admin"
+      flash[:alert] = "You do not have permission to create a new group."
+      redirect_to group_path(current_user.group)
+    end
+
     @group = Group.new
   end
 
   # GET /groups/1/edit
   def edit
+    @group = Group.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && current_user.group != @group
+      flash[:alert] = "You do not have permission to edit a different group."
+      redirect_to group_path(current_user.group)
+    end
   end
 
   def delete
     @group = Group.find(params[:id])
+    
+    if current_user.user_type.downcase != "admin" && current_user.group != @group
+      flash[:alert] = "You do not have permission to delete a different group."
+      redirect_to group_path(current_user.group)
+    end
   end
 
   # POST /groups or /groups.json
   def create
     @group = Group.new(group_params)
+
+    if current_user.user_type.downcase != "admin"
+      return
+    end
 
     respond_to do |format|
       if @group.save
@@ -70,6 +109,10 @@ class GroupsController < ApplicationController
 
   # PATCH/PUT /groups/1 or /groups/1.json
   def update
+    if current_user.user_type.downcase != "admin"
+      return
+    end
+
     respond_to do |format|
       if @group.update(group_params)
         format.html { redirect_to group_url(@group), notice: "Group was successfully updated." }
@@ -84,6 +127,10 @@ class GroupsController < ApplicationController
   # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
+
+    if current_user.user_type.downcase != "admin"
+      return
+    end
 
     respond_to do |format|
       format.html { redirect_to groups_url, notice: "Group was successfully deleted." }
