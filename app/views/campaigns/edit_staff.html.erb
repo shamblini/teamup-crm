@@ -1,0 +1,5 @@
+<h1>Update Campaign</h1>
+
+<%= render partial: 'form_staff', locals: { campaign: @campaign, method: :patch } %>
+
+<%= link_to "Delete", delete_campaign_path(@campaign)%>

@@ -4,6 +4,7 @@ class Campaign < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :start_date_before_end_date
+  belongs_to :group
   
   has_many :donations
   has_many :users, through: :donations
