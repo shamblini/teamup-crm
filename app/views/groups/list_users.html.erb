@@ -17,7 +17,7 @@
         <td style="text-align: center;"><%= user.name %></td>
         <td style="text-align: center;"><%= user.email %></td>
         <td style="text-align: center;"><%= user.user_type %></td>
-        <td style="text-align: center;"><%= number_to_currency(user.total_donations, unit: '$', precision: 2) %></td>
+        <td style="text-align: center;"><%= number_to_currency(user.calculate_total_donations, unit: '$', precision: 2) %></td>
         <td style="text-align: center;">
           <%= link_to 'Show', user_path(user) %>
           <%= link_to 'Edit', edit_user_path(user) %>

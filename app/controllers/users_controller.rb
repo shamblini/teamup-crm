@@ -40,7 +40,6 @@ class UsersController < ApplicationController
     
     def donation_history
       @user = User.find(params[:id])
-      @donations = Donation.where(user_id: @user.pluck(:id))
     end
 
     # GET /users/1

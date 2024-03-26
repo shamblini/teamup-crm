@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_25_000437) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_26_180048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -92,8 +92,8 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_25_000437) do
     t.index ["logs_id"], name: "index_users_on_logs_id"
   end
 
-  add_foreign_key "filters", "segments"
   add_foreign_key "campaigns", "groups"
+  add_foreign_key "filters", "segments"
   add_foreign_key "logs", "users"
   add_foreign_key "users", "donations", column: "donations_id"
   add_foreign_key "users", "groups"

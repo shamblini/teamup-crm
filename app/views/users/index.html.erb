@@ -11,6 +11,7 @@
       <th>Email</th>
       <th>User Type</th>
       <th>Group Name</th>
+      <th>Number of Donations</th>
       <th>Total Donations</th>
       <th>Actions</th>
     </tr>
@@ -25,7 +26,8 @@
         <td style="text-align: center;">
           <%= link_to user.group_name, group_path(user.group), class: 'group-link' %>
         </td>
-        <td style="text-align: center;"><%= number_to_currency(user.total_donations, unit: '$', precision: 2) %></td>
+        <td style="text-align: center;"><%= user.count_donations %></td>
+        <td style="text-align: center;"><%= number_to_currency(user.calculate_total_donations, unit: '$', precision: 2) %></td>
         <td style="text-align: center;">
           <%= link_to 'Show', user %>
           <%= link_to 'Edit', edit_user_path(user) %>

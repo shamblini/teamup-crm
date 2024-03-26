@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
     get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end
+  resources :users do
+    member do
+      get 'donation_history'
+    end
+  end
   
   get '/groups', to: 'groups#index'
   resources :groups

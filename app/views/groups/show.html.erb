@@ -12,6 +12,10 @@
     <td><%= @group.org_type %></td>
   </tr>
   <tr>
+    <th>Number of Donations</th>
+    <td><%= @group.count_donations %></td>
+  </tr>
+  <tr>
     <th>Total Donations</th>
     <td><%= number_to_currency(@group.calculate_total_donations, unit: '$', precision: 2) %></td>
   </tr>
