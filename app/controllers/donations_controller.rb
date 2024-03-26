@@ -2,7 +2,9 @@ class DonationsController < ApplicationController
   before_action :set_donation, only: %i[ show edit update destroy ]
 
   def index
-    @donations = Donation.all
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
+    @donations = Donation.where(campaign: Campaign.where(group: current_user.group))
+
     if params[:sort]
       column = params[:sort]
       direction = params[:direction] == 'asc' ? 'desc' : 'asc'
@@ -17,7 +19,8 @@ class DonationsController < ApplicationController
   end
 
   def search_campaigns
-    @donations = Donation.all
+    @donations = Donation.where(campaign: Campaign.where(group: current_user.group))
+
     @donations = @donations.select{ |donation| donation.campaign && donation.campaign.name.include?(params[:campaign]) }
 
     if @donations.empty? || (params[:campaign]).empty?
@@ -30,7 +33,8 @@ class DonationsController < ApplicationController
   end
 
   def search_donations
-    @donations = Donation.all
+    @donations = Donation.where(campaign: Campaign.where(group: current_user.group))
+
     @donation = @donations.find { |donation| donation.donor_name.include?(params[:search]) }
     
     if @donation
@@ -60,14 +64,30 @@ class DonationsController < ApplicationController
 
   def show
     @donation = Donation.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
   end
 
   def new
     @donation = Donation.new
+
+    if current_user.user_type.downcase == "admin"
+      render 'new'
+    else
+      render 'new_staff'
+    end
   end
 
   def create
     @donation = Donation.new(donation_params)
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      @flash[:alert] = "You do not have permission to make that edit."
+      redirect_to root_path and return
+    end
 
     respond_to do |format|
       if @donation.save
@@ -84,10 +104,21 @@ class DonationsController < ApplicationController
 
   def edit
     @donation = Donation.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
   end
   
   def update
     @donation = Donation.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      @flash[:alert] = "You do not have permission to make that edit."
+      redirect_to root_path and return
+    end
+
     respond_to do |format|
       if @donation.update(donation_params)
         format.html { redirect_to donations_url, notice: "Donation was successfully updated." }
@@ -102,10 +133,21 @@ class DonationsController < ApplicationController
 
   def delete
     @donation = Donation.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
   end
 
   def destroy
     @donation = Donation.find(params[:id])
+
+    if current_user.user_type.downcase != "admin" && @donation.campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
+
     @donation.destroy
     respond_to do |format|
       format.html { redirect_to donations_url, notice: 'Donation was successfully deleted.' }

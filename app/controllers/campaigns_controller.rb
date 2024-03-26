@@ -1,11 +1,23 @@
 class CampaignsController < ApplicationController
   before_action :set_campaign, only: %i[ show edit update destroy ]
+
   def index
+    # Set the current user accessing the page
+    @current_user = current_user
+
     @campaigns = Campaign.all
+    
+    if current_user.user_type.downcase != "admin"
+      @campaigns = Campaign.where(group: current_user.group)
+    end 
+
+    # Set the navbar based on the user status
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
+
     if params[:sort]
       column = params[:sort]
       direction = params[:direction] == 'asc' ? 'desc' : 'asc'
-      @campaigns = @campaigns.order("#{column} #{direction}")
+      @campaigns_to_display = @campaigns_to_display.order("#{column} #{direction}")
     end
     if params[:search]
       search_campaigns
@@ -31,6 +43,11 @@ class CampaignsController < ApplicationController
 
   def search_campaigns
     @campaigns = Campaign.all
+    
+    if current_user.user_type.downcase == "admin"
+      @campaigns = Campaign.where(group: current_user.group)
+    end 
+  
     @campaign = @campaigns.find { |campaign| campaign.name.include?(params[:search]) }
     
     if @campaign
@@ -45,16 +62,30 @@ class CampaignsController < ApplicationController
 
   def show
     @campaign = Campaign.find(params[:id])
+    if current_user.user_type.downcase != "admin" && @campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
+
     @donations = Donation.all
     @donations = @donations.select{ |donation| donation.campaign && donation.campaign.name.include?(@campaign.name) }
   end
 
   def new
     @campaign = Campaign.new
+    if current_user.user_type.downcase == "admin"
+      render 'new'
+    else
+      render 'new_staff'
+    end
   end
 
   def create
     @campaign = Campaign.new(campaign_params)
+
+    if current_user.user_type.downcase != "admin"
+      @campaign.group = current_user.group
+    end
 
     respond_to do |format|
       if @campaign.save
@@ -69,6 +100,18 @@ class CampaignsController < ApplicationController
 
   def edit
     @campaign = Campaign.find(params[:id])
+
+    # Staff only has permission to edit their group users, Admins can edit all
+    if current_user.user_type.downcase != "admin" && @campaign.group != current_user.group
+      flash[:alert] = "You do not have permission to view that page."
+      redirect_to root_path and return
+    end
+
+    if current_user.user_type.downcase == "admin"
+      render 'edit'
+    else
+      render 'edit_staff'
+    end
   end
 
   def update
@@ -96,6 +139,6 @@ class CampaignsController < ApplicationController
   end
 
   def campaign_params
-    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date)
+    params.require(:campaign).permit(:name, :goal_amount, :start_date, :end_date, :group_id)
   end
 end

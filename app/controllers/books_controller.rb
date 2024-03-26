@@ -5,6 +5,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
+    @navbar_partial = current_user.user_type.downcase == "admin" ? 'shared/header' : 'shared/header_staff'
     @books = Book.all
   end
 
