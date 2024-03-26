@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
       # Loop through all users in the database to display all to an Admin or only the group Users to a Staff
       @users.each do |user|
-        if (@current_user.user_type != "Admin" && user.group == @current_user.group) || (@current_user.user_type == "Admin")
+        if (@current_user.user_type.downcase != "admin" && user.group == @current_user.group) || (@current_user.user_type.downcase == "admin")
           @users_to_display << user
         end
       end
