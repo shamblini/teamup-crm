@@ -30,9 +30,6 @@
     <%= form.date_field :end_date %>
   </div>
 
-  <%= form.label :group_id %>
-  <%= form.collection_select(:group_id, Group.all, :id, :name, prompt: "Select a group") %>
-
   <div class="actions">
     <%= form.submit "Update Campaign" %>
   </div>
