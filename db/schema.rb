@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_24_025305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,6 +43,16 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.integer "user_id"
   end
 
+  create_table "filters", force: :cascade do |t|
+    t.bigint "segment_id", null: false
+    t.string "attribute_type"
+    t.text "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["segment_id"], name: "index_filters_on_segment_id"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -56,6 +66,13 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_logs_on_user_id"
+  end
+
+  create_table "segments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "filters"
   end
 
   create_table "users", force: :cascade do |t|
@@ -75,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_05_022708) do
     t.index ["logs_id"], name: "index_users_on_logs_id"
   end
 
+  add_foreign_key "filters", "segments"
   add_foreign_key "logs", "users"
   add_foreign_key "users", "donations", column: "donations_id"
   add_foreign_key "users", "groups"

@@ -1,0 +1,37 @@
+<%= form_with(model: @segment, url: segments_path) do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :segment_name %>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Choose</th>
+        <th>Name</th>
+        <th>Data</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @filters_data.each_with_index do |filter_data, index| %>
+        <tr>
+          <td><%= form.check_box "filters[][#{index}][3]", { multiple: true }, 1, 0 %></td>
+          <td><%= filter_data[0] %></td>
+          <td><%= form.hidden_field "filters[][#{index}][0]", value: filter_data[0] %></td>
+          <td><%= form.hidden_field "filters[][#{index}][1]", value: filter_data[1]%></td>
+          <td>
+            <% if filter_data[1] == 'numerical' && filter_data[2].present? %>
+              Min: <%= form.number_field "filters[][#{index}][2][0]", value: filter_data[2][0] %>
+              Max: <%= form.number_field "filters[][#{index}][2][1]", value: filter_data[2][1] %>
+            <% elsif filter_data[1] == 'categorical' && filter_data[2].present? %>
+              <% filter_data[2].each_with_index do |class_value, class_index| %>
+                <%= form.check_box "filters[][#{index}][2][#{class_index}]", { multiple: true, class: "checkbox-#{index}" }, class_value %>
+                <%= class_value %><br>
+              <% end %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= form.submit "Create Segment" %>
+<% end %>

@@ -1,0 +1,21 @@
+<h1>Segment details</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @segment.name %>
+</p>
+
+<p>
+  <strong>Filters:</strong>
+  <ul>
+    <% @segment.filters.each do |filter| %>
+      <li>
+        <strong>Name:</strong> <%= filter.name %><br>
+        <strong>Range:</strong> <%= filter.data %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_segment_path(@segment) %> |
+<%= link_to 'Back', segments_path %>
