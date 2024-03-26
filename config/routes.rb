@@ -46,4 +46,13 @@ Rails.application.routes.draw do
     end
   end
 
+  # segment routes
+
+  resources :segments, only: [:index]
+  resources :segments do
+    member do
+      get :delete
+    end
+  end
+
 end
