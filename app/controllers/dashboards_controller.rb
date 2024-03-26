@@ -9,7 +9,8 @@ class DashboardsController < ApplicationController
       @navbar_partial = 'shared/header_staff'
       @partial_to_render = 'staff'
     else
-      @partial_to_render = 'new_user'
+      @navbar_partial = 'shared/header_staff'
+      @partial_to_render = 'staff'
     end
   end
 end

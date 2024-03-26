@@ -49,7 +49,9 @@ class UsersController < ApplicationController
     # GET /users/new
     def new
       @user = User.new
-      if current_user.user_type.downcase == "admin"
+      if current_user.nil
+        render 'new_user'
+      elsif current_user.user_type.downcase == "admin"
         render 'new'
       else
         render 'new_staff'

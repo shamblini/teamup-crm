@@ -2,6 +2,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
     user = User.find_by(email: from_google_params[:email])
 
+    if !user.present?
+      group = Group.create!(name: "new group", org_type: "nonprofit")
+      user = User.create!(email: from_google_params[:email], group: group, user_type: "staff")
+    end
+
     if user.present? && (user.user_type.downcase == "staff" || user.user_type.downcase == "admin")
       sign_out_all_scopes
       flash[:success] = t 'devise.omniauth_callbacks.success', kind: 'Google'

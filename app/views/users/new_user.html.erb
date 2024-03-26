@@ -1,0 +1,7 @@
+<!-- app/views/users/new.html.erb -->
+
+<h1>New User</h1>
+
+<%= form_for(@user) do |f| %>
+    <%= render 'form_user', model_name: @model_name %>
+<% end %>
